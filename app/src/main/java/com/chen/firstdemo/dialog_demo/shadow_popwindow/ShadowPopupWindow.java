@@ -17,7 +17,6 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.PopupWindow;
 
 public abstract class ShadowPopupWindow extends PopupWindow {
-
     protected final String TAG = "ShadowPopWindow_TAG";
 
     protected  Activity context ;
@@ -48,6 +47,10 @@ public abstract class ShadowPopupWindow extends PopupWindow {
         );
     }
 
+    protected abstract void onCreateView(View view);
+
+    protected abstract int getLayoutId();
+
     public void showCenteral(int layoutId){
         this.showAtLocation(LayoutInflater.from(context).inflate(layoutId,null,false),
                 Gravity.CENTER,0,0);
@@ -75,6 +78,24 @@ public abstract class ShadowPopupWindow extends PopupWindow {
     }
 
     /**
+     * 设置背景渐变的持续时间
+     * @return
+     */
+    protected  long getAnimatorDuration(){
+        return 200 ;
+    }
+
+    /**
+     * 取值范围: 0.0f - 1.0f
+     * 0.0f是不透明，1.0f是全透明
+     * @return
+     */
+    protected  float getAnimatorAlpha(){
+        return 0.5f ;
+    }
+
+
+    /**
      * 设置页面的透明度
      * @param bgAlpha 1.0f表示全透明  0.0f表示不透明
      */
@@ -88,23 +109,5 @@ public abstract class ShadowPopupWindow extends PopupWindow {
         }
         context.getWindow().setAttributes(lp);
     }
-
-    protected abstract void onCreateView(View view);
-
-    protected abstract int getLayoutId();
-
-    /**
-     * 设置背景渐变的持续时间
-     * @return
-     */
-    protected abstract long getAnimatorDuration();
-
-
-    /**
-     * 取值范围: 0.0f - 1.0f
-     * 0.0f是不透明，1.0f是全透明
-     * @return
-     */
-    protected abstract float getAnimatorAlpha();
 
 }

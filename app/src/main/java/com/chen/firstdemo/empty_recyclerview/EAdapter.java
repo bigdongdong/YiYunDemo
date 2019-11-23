@@ -14,17 +14,17 @@ import java.util.List;
 /*
  * Create by chenxiaodong on 2019/11/23 0023 0:03
  */
-abstract class EmptyAdapter<Bean,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
-    protected final String TAG = "EmptyAdapter->TAG";
+abstract class EAdapter<Bean,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
+    protected final String TAG = "EAdapter->TAG";
 
     private boolean isInitialize = true ;  //初次加载，也就是recyclerView.setAdapter时，默认显示空白
-    private final int TYPE_EMPTY = -999999999 ;
+    private final int TYPE_EMPTY = -9999 ;
     private boolean isEmpty = false ;
     private List<Bean> listData ;
     protected Context context ;
 
 
-    protected EmptyAdapter(Context context){
+    protected EAdapter(Context context){
         this.context = context ;
     }
 

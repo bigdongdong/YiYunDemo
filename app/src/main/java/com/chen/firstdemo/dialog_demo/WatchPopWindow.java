@@ -31,14 +31,4 @@ public class WatchPopWindow extends ShadowPopupWindow {
         return R.layout.dialog_goto_earn_gold_coin;
     }
 
-    @Override
-    protected long getAnimatorDuration() {
-        return 150;
-    }
-
-    @Override
-    protected float getAnimatorAlpha() {
-        return 0.8f;
-    }
-
 }

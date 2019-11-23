@@ -4,6 +4,7 @@
     android:layout_height="200dp">
 
     <TextView
+        android:id="@+id/text"
         android:textColor="#FFFFFF"
         android:textSize="60dp"
         android:gravity="center"

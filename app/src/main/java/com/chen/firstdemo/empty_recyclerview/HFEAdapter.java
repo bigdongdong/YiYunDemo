@@ -10,22 +10,32 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Create by chenxiaodong on 2019/11/23 0023 11:54
+/**
+ *
+ *               HFEAdapter
+ *         ______|||______
+ *        |       |      |
+ *     Header  Footer  Empty
+ *
+ *
+ * Create by chenxiaodong on 2019/11/23 11:54
+ *
+ * @param <Bean>
+ * @param <VH>
  */
 abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
-    protected final String TAG = "EmptyAdapter->TAG";
+    protected final String TAG = "HFEAdapter->TAG";
 
-    private boolean isInitialize = true ;  //初次加载，也就是recyclerView.setAdapter时，默认显示空白
     private final int TYPE_HEADER = -9999 ;
     private final int TYPE_FOOTER = -9998 ;
     private final int TYPE_EMPTY = -9997 ;
 
+    private boolean isInitialize = true ;  //初次加载，也就是recyclerView.setAdapter时，默认显示空白
     private boolean isEmpty = false ;
     private boolean hasHeader = false ;
     private boolean hasFooter = false ;
-
     private List<Bean> listData ;
+
     protected Context context ;
 
     protected HFEAdapter(Context context){
@@ -65,8 +75,10 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
     }
 
     /**
-     * 之所以提供view的返回选项，是为了多元化空布局的操作空间，让布局view可以跟用户交互
-     * @return 获取布局的布局id或者view实例
+     * getXXXXXIdOrView()方法说明：
+     * 之所以提供Object的返回选项，是为了多元化空布局的操作空间，让布局view可以跟用户交互
+     * 该方法接收布局id或者view实例（方便设置交互）
+     * 当使用view作为返回内容时，需要给view动态设置宽度
      */
 
     protected abstract Object getHeaderIdOrView();
@@ -75,9 +87,15 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
 
     protected abstract Object getEmptyIdOrView();
 
+    protected abstract VH onCreateViewHolder( int itemType ,ViewGroup parent);
 
-    protected abstract VH onCreateViewHolder( int itemType ,ViewGroup viewGroup);
 
+    /**
+     *
+     * @param holder
+     * @param bean
+     * @param position 除去header和footer之后的position
+     */
     protected abstract void onBindViewHolder(VH holder, Bean bean , int position);
 
     @NonNull
@@ -182,7 +200,7 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
         return super.getItemViewType(position);
     }
 
-    class HFEViewholder extends RecyclerView.ViewHolder{
+    private class HFEViewholder extends RecyclerView.ViewHolder{
         public HFEViewholder(@NonNull View itemView) {
             super(itemView);
         }

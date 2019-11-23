@@ -1,6 +1,10 @@
 package com.chen.firstdemo.empty_recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chen.firstdemo.MainActivity;
 import com.chen.firstdemo.R;
 
 import java.util.ArrayList;
@@ -78,7 +83,21 @@ public class EmptyAdapterActivity extends AppCompatActivity {
 
         @Override
         protected Object getEmptyIdOrView() {
-            return R.layout.item_empty;
+            View view = LayoutInflater.from(context).inflate(R.layout.item_empty,null);
+            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT));
+            TextView goToCreateTV = view.findViewById(R.id.goToCreateTV);
+            goToCreateTV.setTextColor(Color.WHITE);
+            GradientDrawable gd = new GradientDrawable();
+            gd.setColor(Color.parseColor("#70FF0000"));
+            gd.setCornerRadius(20);
+            gd.setStroke(2,Color.parseColor("#40111111"));
+            goToCreateTV.setBackground(gd);
+            goToCreateTV.setOnClickListener(v -> {
+                Intent intent = new Intent(context,MainActivity.class);
+                context.startActivity(intent);
+            });
+            return view;
         }
 
         @Override
@@ -92,8 +111,8 @@ public class EmptyAdapterActivity extends AppCompatActivity {
         }
 
         @Override
-        protected MyViewHolder onCreateViewHolder(int itemType, ViewGroup viewGroup) {
-            return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_general,viewGroup,false));
+        protected MyViewHolder onCreateViewHolder(int itemType, ViewGroup parent) {
+            return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_general,parent,false));
         }
 
         @Override
@@ -115,6 +134,5 @@ public class EmptyAdapterActivity extends AppCompatActivity {
             }
         }
     }
-
 
 }
