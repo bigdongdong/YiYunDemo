@@ -27,7 +27,7 @@ public class EmptyAdapterActivity extends AppCompatActivity {
     RecyclerView recyclerView ;
     Button button1,button2,button3,button4 ;
 
-    List<String> list = new ArrayList<>();
+    List<String> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,20 +41,12 @@ public class EmptyAdapterActivity extends AppCompatActivity {
         button4 = findViewById(R.id.button4);
         recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
 
-        MyAdapter adapter = new MyAdapter(context) {
-            @Override
-            void deal(MyViewHolder holder, String data) {
-                holder.textView.setText(data);
-            }
-        };
+        MyAdapter adapter = new MyAdapter(context);
         recyclerView.setAdapter(adapter);
 
-        for (int i = 0; i < 1; i++) {
-            list.add("this is the "+i+" item");
-        }
 
         button1.setOnClickListener(view -> {
-            adapter.update(list);
+            adapter.update(getList());
         });
         button2.setOnClickListener(view -> {
             adapter.update(null);
@@ -63,12 +55,22 @@ public class EmptyAdapterActivity extends AppCompatActivity {
             adapter.update(new ArrayList<>());
         });
         button4.setOnClickListener(view -> {
-            adapter.append(list);
+            adapter.append(getList());
         });
+
+    }
+
+    List<String> getList(){
+        list = new ArrayList<>();
+
+        for (int i = 0; i < 2; i++) {
+            list.add("this is the "+i+" item");
+        }
+        return list ;
     }
 
 
-    abstract class MyAdapter extends EmptyAdapter<String,MyAdapter.MyViewHolder> {
+    class MyAdapter extends HFEAdapter<String,MyAdapter.MyViewHolder> {
 
         protected MyAdapter(Context context) {
             super(context);
@@ -76,19 +78,17 @@ public class EmptyAdapterActivity extends AppCompatActivity {
 
         @Override
         protected Object getEmptyIdOrView() {
-            ImageView imageView = new ImageView(context);
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(0,200,0,0);
-            imageView.setLayoutParams(params);
-            imageView.setImageResource(R.mipmap.empty);
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context,"我被点击了！",Toast.LENGTH_SHORT).show();
-                }
-            });
-            return imageView;
+            return R.layout.item_empty;
+        }
+
+        @Override
+        protected Object getHeaderIdOrView() {
+            return R.layout.item_header;
+        }
+
+        @Override
+        protected Object getFooterIdOrView() {
+            return R.layout.item_footer;
         }
 
         @Override
@@ -97,11 +97,15 @@ public class EmptyAdapterActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onBindViewHolder(MyViewHolder holder, String s, int position) {
-            deal(holder,s);
+        protected void onBindViewHolder(MyViewHolder holder, String s, final int position) {
+            holder.textView.setText(s+"  position:"+position);
+            holder.textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context,"position:"+position,Toast.LENGTH_SHORT).show();
+                }
+            });
         }
-
-        abstract void deal(MyViewHolder holder , String data);
 
         class MyViewHolder extends RecyclerView.ViewHolder{
             TextView textView ;
@@ -111,4 +115,6 @@ public class EmptyAdapterActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

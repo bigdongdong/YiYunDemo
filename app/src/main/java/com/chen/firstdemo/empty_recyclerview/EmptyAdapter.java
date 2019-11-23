@@ -16,26 +16,31 @@ import java.util.List;
  */
 abstract class EmptyAdapter<Bean,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
     protected final String TAG = "EmptyAdapter->TAG";
+
     private boolean isInitialize = true ;  //初次加载，也就是recyclerView.setAdapter时，默认显示空白
     private final int TYPE_EMPTY = -999999999 ;
     private boolean isEmpty = false ;
-
+    private List<Bean> listData ;
     protected Context context ;
 
-    List<Bean> listData ;
 
     protected EmptyAdapter(Context context){
         this.context = context ;
     }
 
     public void update(List<Bean> listData){
-        isInitialize = false ;
+        if(isInitialize == true){
+            isInitialize = false ;
+        }
         this.listData = listData ;
         notifyDataSetChanged();
     }
 
     public void append(List<Bean> listData){
-        isInitialize = false ;
+        if(isInitialize == true){
+            isInitialize = false ;
+        }
+
         if(this.listData == null){
             this.listData = new ArrayList<>();
         }
@@ -95,8 +100,8 @@ abstract class EmptyAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Rec
         }
 
         if(listData == null || listData.size() == 0){
-            isEmpty = true;
-            return 1 ;
+            isEmpty = (getEmptyIdOrView() != null);
+            return (getEmptyIdOrView() != null) ? 1:0 ;
         }else{
             isEmpty = false ;
             return listData.size();
