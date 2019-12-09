@@ -27,17 +27,22 @@ public abstract class ShadowPopupWindow extends PopupWindow {
         super(context);
         this.context = context ;
 
-        view = LayoutInflater.from(context).inflate(getLayoutId(),null,false);
-        this.setContentView(view);
-        this.onCreateView(view);
+        if(getLayoutIdOrView() instanceof Integer){
+            view = LayoutInflater.from(context).inflate((Integer) getLayoutIdOrView(),null,false);
+        }else if(getLayoutIdOrView() instanceof View){
+            view = (View) getLayoutIdOrView();
+        }
+
+        //以下解决5.0及以下不显示问题
+        this.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
 
         this.setOutsideTouchable(true);
         this.setFocusable(true);
         this.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //设置null会造成5.0及以下点击外部不消失问题
 
-        //以下解决5.0及以下不显示问题
-        this.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
-        this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        this.setContentView(view);
+        this.onCreateView(view);
 
         animator = new ValueAnimator();
         animator.setInterpolator(new AccelerateDecelerateInterpolator()); //设置动画为先加速在减速(开始速度最快 逐渐减慢)
@@ -49,11 +54,15 @@ public abstract class ShadowPopupWindow extends PopupWindow {
 
     protected abstract void onCreateView(View view);
 
-    protected abstract int getLayoutId();
+    protected abstract Object getLayoutIdOrView();
 
     public void showCenteral(int layoutId){
         this.showAtLocation(LayoutInflater.from(context).inflate(layoutId,null,false),
                 Gravity.CENTER,0,0);
+    }
+
+    public void showCenteral(View parent){
+        this.showAtLocation(parent, Gravity.CENTER,0,0);
     }
 
     @Override

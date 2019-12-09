@@ -83,10 +83,12 @@ public class FloatingWindowActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 0){
-            if(Settings.canDrawOverlays(mContext)){
-                startService(new Intent(mContext,FloatingWindowService.class));
-            }else{
-                Toast.makeText(mContext,"授权失败",Toast.LENGTH_SHORT).show();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if(Settings.canDrawOverlays(mContext)){
+                    startService(new Intent(mContext,FloatingWindowService.class));
+                }else{
+                    Toast.makeText(mContext,"授权失败",Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }

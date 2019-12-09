@@ -27,7 +27,7 @@ public class WatchPopWindow extends ShadowPopupWindow {
     }
 
     @Override
-    protected int getLayoutId() {
+    protected Object getLayoutIdOrView() {
         return R.layout.dialog_goto_earn_gold_coin;
     }
 

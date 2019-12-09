@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.chen.firstdemo">
     <!-- 悬浮窗权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name=".Chen"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".empty_recyclerview.EmptyAdapterActivity"></activity>
+        <activity android:name=".banner_demo.Banner2Activity"></activity>
+        <activity android:name=".bottom_tab_demo_2.BottomTab2Activity" />
+        <activity android:name=".banner_demo.BannerActivity" />
+        <activity android:name=".HorizontalScrollView.HorizontalScrollViewActivity" />
+        <activity android:name=".clip_path_demo.ClipPathActivity" />
+        <activity android:name=".empty_recyclerview.EmptyAdapterActivity" />
         <activity android:name=".viewstub_demo.ViewStubActivity" />
         <activity android:name=".dialog_demo.DialogActivity" />
         <activity android:name=".lazy_fragment.LazyLoadActivity" />
         <activity android:name=".rank_imageview_demo.RankImageViewActivity" />
         <activity android:name=".diy_view_demo.DIYViewActivity" />
         <activity android:name=".notification_demo.NotificationDisplayActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
