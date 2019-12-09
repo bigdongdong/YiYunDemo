@@ -16,6 +16,9 @@ import com.cxd.moudle.PointsOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 使用github添加框架实现
+ */
 public class Banner2Activity extends AppCompatActivity {
 
     private FrameLayout bannerFL ;
