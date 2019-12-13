@@ -10,6 +10,7 @@ public class RankImageViewActivity extends AppCompatActivity {
 
     private LinearLayout mainLayout ;
     private RankImageView rankIV ;
+    private WeekStarRankImageView wRankIV ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,5 +29,15 @@ public class RankImageViewActivity extends AppCompatActivity {
         rankIV = new RankImageView(this,3);
         rankIV.setLayoutParams(params);
         mainLayout.addView(rankIV);
+
+        wRankIV = new WeekStarRankImageView(this,1);
+        wRankIV.setLayoutParams(params);
+        mainLayout.addView(wRankIV);
+        wRankIV = new WeekStarRankImageView(this,2);
+        wRankIV.setLayoutParams(params);
+        mainLayout.addView(wRankIV);
+        wRankIV = new WeekStarRankImageView(this,3);
+        wRankIV.setLayoutParams(params);
+        mainLayout.addView(wRankIV);
     }
 }

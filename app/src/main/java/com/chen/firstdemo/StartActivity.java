@@ -22,7 +22,11 @@ import com.chen.firstdemo.greendao_demo.GreendaoActivity;
 import com.chen.firstdemo.lazy_fragment.LazyLoadActivity;
 import com.chen.firstdemo.notification_demo.NotificationActivity;
 import com.chen.firstdemo.pager_demo.PagerActivity;
+import com.chen.firstdemo.progress_imageview_demo.ProgressImageView;
+import com.chen.firstdemo.progress_imageview_demo.ProgressImageViewActivity;
 import com.chen.firstdemo.rank_imageview_demo.RankImageViewActivity;
+import com.chen.firstdemo.select_tab_demo.SelectTabActivity;
+import com.chen.firstdemo.shape_demo.ShapeActivity;
 import com.chen.firstdemo.utils.ScreenUtil;
 import com.chen.firstdemo.viewstub_demo.ViewStubActivity;
 
@@ -40,7 +44,6 @@ public class StartActivity extends AppCompatActivity {
 
         classes = new Class[]{BitmapMixActivity.class,
                 BottomTabActivity.class,
-                DIYViewActivity.class,
                 FloatingWindowActivity.class,
                 GreendaoActivity.class,
                 NotificationActivity.class,
@@ -53,11 +56,15 @@ public class StartActivity extends AppCompatActivity {
                 HorizontalScrollViewActivity.class,
                 RankImageViewActivity.class,
                 BottomTab2Activity.class,
-                Banner2Activity.class
+                Banner2Activity.class,
+                SelectTabActivity.class,
+                ProgressImageViewActivity.class,
+                DIYViewActivity.class,
+                ShapeActivity.class
         } ;
 
-        for(Class c : classes){
-            generateView(c.getSimpleName(),c);
+        for(int i = classes.length-1 ; i >= 0 ; i--){
+            generateView(classes[i].getSimpleName(),classes[i]);
         }
 
         //直接点击最后一个

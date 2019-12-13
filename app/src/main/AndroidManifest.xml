@@ -4,15 +4,19 @@
     package="com.chen.firstdemo">
     <!-- 悬浮窗权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="YiYunDemo"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".banner_demo.Banner2Activity"></activity>
+        <activity android:name=".shape_demo.ShapeActivity"></activity>
+        <activity android:name=".progress_imageview_demo.ProgressImageViewActivity" />
+        <activity android:name=".select_tab_demo.SelectTabActivity" />
+        <activity android:name=".banner_demo.Banner2Activity" />
         <activity android:name=".bottom_tab_demo_2.BottomTab2Activity" />
         <activity android:name=".banner_demo.BannerActivity" />
         <activity android:name=".HorizontalScrollView.HorizontalScrollViewActivity" />

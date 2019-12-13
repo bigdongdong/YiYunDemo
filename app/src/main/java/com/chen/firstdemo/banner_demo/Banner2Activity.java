@@ -68,5 +68,7 @@ public class Banner2Activity extends AppCompatActivity {
                 .build();
 
         bannerFL.addView(banner);
+
+        banner.start();
     }
 }

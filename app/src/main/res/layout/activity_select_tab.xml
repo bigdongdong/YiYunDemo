@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".select_tab_demo.SelectTabActivity">
+
+    <com.chen.firstdemo.select_tab_demo.SelectTabLayout
+        android:id="@+id/selectTabLayout"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/tab1TV"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:text="贡献榜"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tab2TV"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:text="真爱榜"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tab3TV"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:text="人气房间"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+
+    </com.chen.firstdemo.select_tab_demo.SelectTabLayout>
+</RelativeLayout>
