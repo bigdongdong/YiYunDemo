@@ -1,7 +1,6 @@
-package com.chen.firstdemo.empty_recyclerview;
+package com.chen.firstdemo.empty_recyclerview.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,20 +10,23 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Create by chenxiaodong on 2019/11/23 0023 0:03
+/**
+ * create by chenxiaodong on 2019/11/29
+ *
+ * 不用写类，用匿名内部类实例化效果极佳
+ * @param <Bean>
  */
-abstract class EAdapter<Bean,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
-    protected final String TAG = "EAdapter->TAG";
+public abstract class QuickAdapter<Bean> extends RecyclerView.Adapter<QuickAdapter.ViewHolder> {
 
+    private  final int TYPE_EASE = -9998;
+    private final int TYPE_EMPTY = -9999;
     private boolean isInitialize = true ;  //初次加载，也就是recyclerView.setAdapter时，默认显示空白
-    private final int TYPE_EMPTY = -9999 ;
     private boolean isEmpty = false ;
     private List<Bean> listData ;
+
     protected Context context ;
 
-
-    protected EAdapter(Context context){
+    protected QuickAdapter(Context context){
         this.context = context ;
     }
 
@@ -47,8 +49,7 @@ abstract class EAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recycle
         this.listData.addAll(listData);
         notifyDataSetChanged();
     }
-
-    protected  List<Bean> getList(){
+    protected List<Bean> getList(){
         return this.listData;
     }
 
@@ -66,30 +67,45 @@ abstract class EAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recycle
      */
     protected abstract Object getEmptyIdOrView();
 
-    protected abstract VH onCreateViewHolder( int itemType ,ViewGroup viewGroup);
+    protected abstract Object getItemViewOrId();
 
-    protected abstract void onBindViewHolder(VH holder, Bean bean , int position);
+    protected abstract void onBindViewHolder(QuickAdapter.ViewHolder holder , Bean bean , int i );
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public  ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         if(i == TYPE_EMPTY){
             if( getEmptyIdOrView() instanceof Integer){
-                return new EViewHolder(LayoutInflater.from(context).inflate((int) getEmptyIdOrView(),viewGroup,false));
+                return new  ViewHolder(LayoutInflater.from(context).inflate((int) getEmptyIdOrView(),viewGroup,false));
             }else if( getEmptyIdOrView() instanceof View){
-                return new EViewHolder((View) getEmptyIdOrView());
-            }else {
-                throw new RuntimeException(" getEmptyIdOrView()只接收布局id或者view类型！！！");
+                return new  ViewHolder((View) getEmptyIdOrView());
             }
-        }else{
-            return onCreateViewHolder(i , viewGroup );
+        }
+
+        if(i == TYPE_EASE){
+            if(getItemViewOrId() instanceof View){
+                return new  ViewHolder((View)getItemViewOrId());
+            }else if(getItemViewOrId() instanceof Integer){
+                return new  ViewHolder(LayoutInflater.from(context).inflate((int)getItemViewOrId(),viewGroup,false));
+            }
+        }
+
+        return null ;
+    }
+
+    @Override
+    public void onBindViewHolder(QuickAdapter.ViewHolder viewHolder, int i) {
+        if(isEmpty == false){
+            onBindViewHolder(viewHolder,getBean(i),i);
         }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int i) {
-        if(isEmpty == false){
-            onBindViewHolder((VH)holder,listData.get(i) , i);
+    public int getItemViewType(int position) {
+        if(getItemCount() == 1 && isEmpty == true){
+            return TYPE_EMPTY ;
+        }else{
+            return TYPE_EASE;
         }
     }
 
@@ -108,19 +124,18 @@ abstract class EAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recycle
         }
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if(getItemCount() == 1 && isEmpty == true){
-            return TYPE_EMPTY ;
-        }else{
-            return super.getItemViewType(position);
-        }
-    }
 
-    private class EViewHolder extends RecyclerView.ViewHolder{
-        public EViewHolder(@NonNull View itemView) {
+    protected class ViewHolder extends RecyclerView.ViewHolder{
+        public  ViewHolder(@NonNull View itemView) {
             super(itemView);
+        }
+
+        public <T extends View> T getView(int id){
+            return (T)itemView.findViewById(id);
+        }
+
+        public <T extends View> T getItemView(){
+            return (T)itemView;
         }
     }
 }
-

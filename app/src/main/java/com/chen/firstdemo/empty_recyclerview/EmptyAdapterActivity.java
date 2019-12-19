@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import com.chen.firstdemo.StartActivity;
 import com.chen.firstdemo.R;
+import com.chen.firstdemo.empty_recyclerview.adapters.EHFAdapter;
+import com.chen.firstdemo.empty_recyclerview.adapters.HFEAdapter;
+import com.chen.firstdemo.empty_recyclerview.adapters.QuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +113,7 @@ public class EmptyAdapterActivity extends AppCompatActivity {
     }
 
 
-    class MyAdapter extends HFEAdapter<String,MyAdapter.MyViewHolder> {
+        class MyAdapter extends HFEAdapter<String,MyAdapter.MyViewHolder> {
 
         protected MyAdapter(Context context) {
             super(context);

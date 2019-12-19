@@ -1,4 +1,4 @@
-package com.chen.firstdemo.empty_recyclerview;
+package com.chen.firstdemo.empty_recyclerview.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,33 +12,34 @@ import java.util.List;
 
 /**
  *
- *               HFEAdapter
+ *               EHFAdapter
  *         ______|||______
  *        |       |      |
- *     Header  Footer  Empty
+ *      Empty  Footer  Header
  *
  *
  * Create by chenxiaodong on 2019/11/23 11:54
  *
+ * Empty's priority is higher than header & footer
  * @param <Bean>
  * @param <VH>
  */
-abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
-    protected final String TAG = "HFEAdapter->TAG";
+public abstract class EHFAdapter<Bean,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
+    protected final String TAG = "EHFAdapter->TAG";
 
     private final int TYPE_HEADER = -9999 ;
     private final int TYPE_FOOTER = -9998 ;
     private final int TYPE_EMPTY = -9997 ;
 
     private boolean isInitialize = true ;  //初次加载，也就是recyclerView.setAdapter时，默认显示空白
-    private boolean isEmpty = false ;
-    private boolean hasHeader = false ;
-    private boolean hasFooter = false ;
+    private Boolean isEmpty = false ;
+    private Boolean hasHeader = null ;
+    private Boolean hasFooter = null ;
     private List<Bean> listData ;
 
     protected Context context ;
 
-    protected HFEAdapter(Context context){
+    protected EHFAdapter(Context context){
         this.context = context ;
     }
 
@@ -103,9 +104,9 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         if(i == TYPE_HEADER){
             if(getHeaderIdOrView() instanceof Integer){
-                return new HFEViewholder(LayoutInflater.from(context).inflate((int) getHeaderIdOrView(),viewGroup,false));
+                return new EHFViewholder(LayoutInflater.from(context).inflate((int) getHeaderIdOrView(),viewGroup,false));
             }else if(getHeaderIdOrView() instanceof View){
-                return new HFEViewholder((View)getHeaderIdOrView());
+                return new EHFViewholder((View)getHeaderIdOrView());
             }else {
                 throw new RuntimeException(" getHeaderIdOrView()只接收布局id或者view类型！！！");
             }
@@ -113,9 +114,9 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
 
         if(i == TYPE_FOOTER){
             if(getFooterIdOrView() instanceof Integer){
-                return new HFEViewholder(LayoutInflater.from(context).inflate((int) getFooterIdOrView(),viewGroup,false));
+                return new EHFViewholder(LayoutInflater.from(context).inflate((int) getFooterIdOrView(),viewGroup,false));
             }else if(getFooterIdOrView() instanceof View){
-                return new HFEViewholder( (View) getFooterIdOrView());
+                return new EHFViewholder( (View) getFooterIdOrView());
             }else {
                 throw new RuntimeException(" getFooterIdOrView()只接收布局id或者view类型！！！");
             }
@@ -123,9 +124,9 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
 
         if(i == TYPE_EMPTY){
             if( getEmptyIdOrView() instanceof Integer){
-                return new HFEViewholder(LayoutInflater.from(context).inflate((int) getEmptyIdOrView(),viewGroup,false));
+                return new EHFViewholder(LayoutInflater.from(context).inflate((int) getEmptyIdOrView(),viewGroup,false));
             }else if( getEmptyIdOrView() instanceof View){
-                return new HFEViewholder((View) getEmptyIdOrView());
+                return new EHFViewholder((View) getEmptyIdOrView());
             }else {
                 throw new RuntimeException(" getEmptyIdOrView()只接收布局id或者view类型！！！");
             }
@@ -136,7 +137,11 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int i) {
-        if(isEmpty == false){
+        if(hasHeader == null || hasFooter == null){
+            throw new RuntimeException("异常");
+        }
+
+        if(isEmpty == false ){
             if(hasHeader == true && hasFooter == true && i>0 && i<=listData.size()){//有头有尾
                 onBindViewHolder((VH)holder,listData.get(i-1) , i-1);
             }
@@ -162,14 +167,16 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
         }
 
         int count = 0 ;
-        if(getHeaderIdOrView() != null){
+        if(hasHeader == null ){
+            hasHeader = (getHeaderIdOrView() != null);
+        }else if(hasHeader == true){
             count ++ ;
-            hasHeader = true ;
         }
 
-        if(getFooterIdOrView() != null){
-            count ++;
-            hasFooter = true ;
+        if(hasFooter == null ){
+            hasFooter = (getFooterIdOrView() != null);
+        }else if(hasFooter == true){
+            count ++ ;
         }
 
         if(listData == null || listData.size() == 0){
@@ -200,8 +207,8 @@ abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recyc
         return super.getItemViewType(position);
     }
 
-    private class HFEViewholder extends RecyclerView.ViewHolder{
-        public HFEViewholder(@NonNull View itemView) {
+    private class EHFViewholder extends RecyclerView.ViewHolder{
+        public EHFViewholder(@NonNull View itemView) {
             super(itemView);
         }
     }
