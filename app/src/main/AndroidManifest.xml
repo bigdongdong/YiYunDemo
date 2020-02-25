@@ -9,17 +9,28 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="YiYunDemo"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".shape_demo.ShapeActivity"></activity>
+        <activity android:name=".drag_recycler_demo.DragRecyclerDeniActivity"></activity>
+        <activity android:name=".matrix_demo.MatrixActivity" />
+        <activity
+            android:name=".chen_jin_pop_demo.ChenjinInputActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity android:name=".my_wallet_demo.MyWalletActivity" />
+        <activity android:name=".scroller_demo.ViewGroupActivity" />
+        <activity android:name=".recycler_manager_demo.RecyclerManagerActivity" />
+        <activity android:name=".anim_demo.AnimActivity" />
+        <activity android:name=".chen_jin_pop_demo.ChenjinPopActivity" />
+        <activity android:name=".clip_children.ClipChildrenActivity" />
+        <activity android:name=".scrollview_toolbar.ScrollViewToolbarActivity" />
+        <activity android:name=".shape_demo.ShapeActivity" />
         <activity android:name=".progress_imageview_demo.ProgressImageViewActivity" />
         <activity android:name=".select_tab_demo.SelectTabActivity" />
-        <activity android:name=".banner_demo.Banner2Activity" />
+        <activity android:name=".banner_demo_github.Banner2Activity" />
         <activity android:name=".bottom_tab_demo_2.BottomTab2Activity" />
-        <activity android:name=".banner_demo.BannerActivity" />
-        <activity android:name=".HorizontalScrollView.HorizontalScrollViewActivity" />
         <activity android:name=".clip_path_demo.ClipPathActivity" />
         <activity android:name=".empty_recyclerview.EmptyAdapterActivity" />
         <activity android:name=".viewstub_demo.ViewStubActivity" />
@@ -48,39 +59,6 @@
         <meta-data
             android:name="PRODUCT"
             android:value="${CHANNEL_VALUE}" /> <!-- APP key, 可以在这里设置，也可以在 SDKOptions 中提供。 -->
-        <!-- 如果 SDKOptions 中提供了，取 SDKOptions 中的值。 -->
-        <!-- &ndash;&gt; -->
-        <!-- <meta-data -->
-        <!-- android:name="com.netease.nim.appKey" -->
-        <!-- android:value="6337ce54ba30ecb6aed7d6459bdabc47" /> &lt;!&ndash; 云信后台服务，请使用独立进程。 &ndash;&gt; -->
-        <!-- <service -->
-        <!-- android:name="com.netease.nimlib.service.NimService" -->
-        <!-- android:process=":core" /> &lt;!&ndash; 云信后台辅助服务 &ndash;&gt; -->
-        <!-- <service -->
-        <!-- android:name="com.netease.nimlib.service.NimService$Aux" -->
-        <!-- android:process=":core" /> &lt;!&ndash; 云信后台辅助服务 &ndash;&gt; -->
-        <!-- <service -->
-        <!-- android:name="com.netease.nimlib.job.NIMJobService" -->
-        <!-- android:exported="true" -->
-        <!-- android:permission="android.permission.BIND_JOB_SERVICE" -->
-        <!-- android:process=":core" /> &lt;!&ndash; 云信监视系统启动和网络变化的广播接收器，保持和 NimService 同一进程 &ndash;&gt; -->
-        <!-- <receiver -->
-        <!-- android:name="com.netease.nimlib.service.NimReceiver" -->
-        <!-- android:exported="false" -->
-        <!-- android:process=":core"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
-        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /> -->
-        <!-- </intent-filter> -->
-        <!-- </receiver> &lt;!&ndash; 云信进程间通信 Receiver &ndash;&gt; -->
-        <!-- <receiver android:name="com.netease.nimlib.service.ResponseReceiver" /> &lt;!&ndash; 云信进程间通信service &ndash;&gt; -->
-        <!-- <service android:name="com.netease.nimlib.service.ResponseService" /> &lt;!&ndash; 云信进程间通信provider &ndash;&gt; -->
-        <!-- &lt;!&ndash; android:authorities="{包名}.ipc.provider", 请将com.netease.nim.demo替换为自己的包名 &ndash;&gt; -->
-        <!-- <provider -->
-        <!-- android:name="com.netease.nimlib.ipc.NIMContentProvider" -->
-        <!-- android:authorities="com.netease.nim.demo.ipc.provider" -->
-        <!-- android:exported="false" -->
-        <!-- android:process=":core" /> &lt;!&ndash; 悬浮窗service &ndash;&gt; -->
         <service android:name=".floating_window_demo.service.FloatingWindowService" />
     </application>
 

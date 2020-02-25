@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".matrix_demo.MatrixActivity"
+    android:orientation="vertical"
+    >
+
+    <com.chen.firstdemo.matrix_demo.MatrixView
+        android:id="@+id/mv"
+        android:visibility="gone"
+        android:src="@mipmap/beauty"
+        android:background="@color/colorPrimary"
+        android:layout_width="1000px"
+        android:layout_height="wrap_content"/>
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/b1"
+            android:text="平移"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/b2"
+            android:text="旋转"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/b3"
+            android:text="缩放"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/b4"
+            android:text="错切"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/b5"
+            android:text="重置"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <com.chen.firstdemo.matrix_demo.FoldCellView
+        android:id="@+id/fv"
+        android:clipChildren="false"
+        android:layout_margin="30dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:layout_width="600px"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@mipmap/beauty"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="300px"/>
+            <ImageView
+                android:src="@mipmap/beauty_3"
+                android:scaleType="fitXY"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="300px"/>
+            <TextView
+                android:padding="10dp"
+                android:textColor="#111111"
+                android:textSize="20sp"
+                android:background="#FFFFFF"
+                android:text="这是第二个view"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300px"/>
+
+        </LinearLayout>
+
+    </com.chen.firstdemo.matrix_demo.FoldCellView>
+
+
+
+</LinearLayout>

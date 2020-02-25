@@ -1,5 +1,6 @@
 package com.chen.firstdemo.diy_view_demo;
 
+import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,12 +41,12 @@ public class DIYViewActivity extends AppCompatActivity {
 
         ImageView iv = new ImageView(this);
         iv.setLayoutParams(new RelativeLayout.LayoutParams(200,200));
-        iv.setBackground(new ShapeDrawable(new HornShape(Gravity.LEFT)));
+        iv.setBackground(new ShapeDrawable(new HornShape(HornShape.Gravity.TOP_LEFT, Color.BLUE)));
         linearLayout.addView(iv);
 
         iv = new ImageView(this);
         iv.setLayoutParams(new RelativeLayout.LayoutParams(200,200));
-        iv.setBackground(new ShapeDrawable(new HornShape(Gravity.RIGHT)));
+        iv.setBackground(new ShapeDrawable(new HornShape(HornShape.Gravity.TOP_RIGHT, Color.BLUE)));
         linearLayout.addView(iv);
 
 

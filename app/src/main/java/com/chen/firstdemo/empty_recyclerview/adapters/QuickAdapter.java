@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * create by chenxiaodong on 2019/11/29
  *
- * 不用写类，用匿名内部类实例化效果极佳
+ * 不用写类，有空布局，瀑布流的时候需要动态设置宽度
  * @param <Bean>
  */
 public abstract class QuickAdapter<Bean> extends RecyclerView.Adapter<QuickAdapter.ViewHolder> {
@@ -34,7 +34,16 @@ public abstract class QuickAdapter<Bean> extends RecyclerView.Adapter<QuickAdapt
         if(isInitialize == true){
             isInitialize = false ;
         }
-        this.listData = listData ;
+
+        if(this.listData == null){
+            this.listData = new ArrayList<>();
+        }else{
+            this.listData.clear();
+        }
+
+        if(listData != null){
+            this.listData.addAll(listData) ;
+        }
         notifyDataSetChanged();
     }
 
@@ -46,10 +55,14 @@ public abstract class QuickAdapter<Bean> extends RecyclerView.Adapter<QuickAdapt
         if(this.listData == null){
             this.listData = new ArrayList<>();
         }
-        this.listData.addAll(listData);
+        if(listData != null){
+            this.listData.addAll(listData) ;
+        }
+
         notifyDataSetChanged();
     }
-    protected List<Bean> getList(){
+
+    public List<Bean> getList(){
         return this.listData;
     }
 
@@ -69,8 +82,7 @@ public abstract class QuickAdapter<Bean> extends RecyclerView.Adapter<QuickAdapt
 
     protected abstract Object getItemViewOrId();
 
-    protected abstract void onBindViewHolder(QuickAdapter.ViewHolder holder , Bean bean , int i );
-
+    protected abstract void onBindViewHolder(ViewHolder holder, Bean bean, int position) ;
     @NonNull
     @Override
     public  ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -95,7 +107,7 @@ public abstract class QuickAdapter<Bean> extends RecyclerView.Adapter<QuickAdapt
 
     @Override
     public void onBindViewHolder(QuickAdapter.ViewHolder viewHolder, int i) {
-        if(isEmpty == false){
+        if(isEmpty == false){ //避免空布局时走了onBindViewHolder，此时list为null，获取不到bean，会出空指针异常
             onBindViewHolder(viewHolder,getBean(i),i);
         }
     }

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:mce="http://schemas.android.com/apk/res-auto">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -26,5 +26,13 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
 
+    </style>
+
+
+    <!--popwindow 底部弹出动画-->
+    <style name="pop_bottom_animation" parent="android:Animation">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowEnterAnimation">@anim/pop_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_bottom_out</item>
     </style>
 </resources>

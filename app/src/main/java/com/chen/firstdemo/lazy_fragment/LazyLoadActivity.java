@@ -24,7 +24,7 @@ public class LazyLoadActivity extends AppCompatActivity {
     List<String> tabs ;
     LazyLoadTestFragment fragment ;
     List<Fragment> fragments ;
-    final int count = 8 ;
+    final int count = 2 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

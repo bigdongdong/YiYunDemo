@@ -32,7 +32,16 @@ abstract class EAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recycle
         if(isInitialize == true){
             isInitialize = false ;
         }
-        this.listData = listData ;
+
+        if(this.listData == null){
+            this.listData = new ArrayList<>();
+        }else{
+            this.listData.clear();
+        }
+
+        if(listData != null){
+            this.listData.addAll(listData) ;
+        }
         notifyDataSetChanged();
     }
 
@@ -44,7 +53,9 @@ abstract class EAdapter<Bean,VH extends RecyclerView.ViewHolder> extends Recycle
         if(this.listData == null){
             this.listData = new ArrayList<>();
         }
-        this.listData.addAll(listData);
+        if(listData != null){
+            this.listData.addAll(listData) ;
+        }
         notifyDataSetChanged();
     }
 

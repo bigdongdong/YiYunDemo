@@ -44,6 +44,7 @@ public abstract class LazyFragment extends Fragment {
                     // 由于onGlobalLayout()会重复调用
                     // 所以避免多次调用，lazyLoad()一旦调用，立即将 isAlreadyInvokedLazyLoad 置为true
                     isAlreadyInvokedLazyLoad = true ;
+                    view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 }
             }
         });

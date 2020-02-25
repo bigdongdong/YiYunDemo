@@ -1,23 +1,26 @@
-package com.chen.firstdemo.banner_demo;
+package com.chen.firstdemo.banner_demo_github;
 
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.chen.firstdemo.R;
-import com.cxd.moudle.Banner;
-import com.cxd.moudle.OnSelectedListener;
-import com.cxd.moudle.PointsOptions;
+import com.cxd.banner.Banner;
+import com.cxd.banner.OnSelectedListener;
+import com.cxd.banner.PointsOptions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 使用github添加框架实现
+ *
+ * 修改项目内容，去Banner项目中改，这里不做备份
+ * 以免版本混淆
  */
 public class Banner2Activity extends AppCompatActivity {
 
@@ -44,7 +47,7 @@ public class Banner2Activity extends AppCompatActivity {
                 .selectedColor(Color.WHITE)
                 .count(list.size())
                 .marginBottom(10)
-                .width(5)
+                .width(15)
                 .build();
 
 
@@ -62,6 +65,7 @@ public class Banner2Activity extends AppCompatActivity {
                     public void onSelectedListener(ImageView view, Integer integer, int position) {
                         Glide.with(view.getContext()).load(integer).into(view);
                         view.setImageResource(integer);
+                        Log.i("aaa", "onSelectedListener: position:"+position);
                     }
 
                 })

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--圆角22.5dp-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/myAssetsRL"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="15dp"
+                android:background="#FF892F">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="15dp"
+                            android:src="@mipmap/wallet_diamond_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5.4dp"
+                            android:text="当前钻石"
+                            android:textColor="#FFFFFFFF"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7.6dp"
+                        android:text="3627"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="29sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="请选择充值钻石"
+                android:textColor="#FF333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="钻石兑换比例：1：1000，充值后不可提现哦"
+                android:textColor="#FF999999"
+                android:textSize="12sp" />
+
+            <!--左边item 左15右5下10
+            右边item 左5右15下10-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="支付方式"
+                android:textColor="#FF333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2.5dp"
+                android:orientation="vertical">
+
+                <!--微信支付-->
+                <RelativeLayout
+                    android:id="@+id/wxPayRL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12.5dp"
+                    android:paddingBottom="12.5dp">
+                    <ImageView
+                        android:src="@mipmap/wx_pay_icon"
+                        android:layout_width="29dp"
+                        android:layout_height="29dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="69dp"
+                        android:text="微信支付"
+                        android:textColor="#FF333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                    <ImageView
+                        android:id="@+id/wxSelectIV"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="25dp"
+                        />
+                </RelativeLayout>
+
+                <!--支付宝支付-->
+                <RelativeLayout
+                    android:id="@+id/aliPayRL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12.5dp"
+                    android:paddingBottom="12.5dp">
+                    <ImageView
+                        android:src="@mipmap/ali_pay_icon"
+                        android:layout_width="29dp"
+                        android:layout_height="29dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="69dp"
+                        android:text="支付宝支付"
+                        android:textColor="#FF333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                    <ImageView
+                        android:id="@+id/aliSelectIV"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="25dp"
+                        />
+                </RelativeLayout>
+
+                <!--音符支付-->
+                <RelativeLayout
+                    android:id="@+id/musicalNotePayRL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12.5dp"
+                    android:paddingBottom="12.5dp">
+                    <ImageView
+                        android:src="@mipmap/musical_note_pay_icon"
+                        android:layout_width="29dp"
+                        android:layout_height="29dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="69dp"
+                        android:text="音符支付"
+                        android:textColor="#FF333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                    <ImageView
+                        android:id="@+id/musicalNoteSelectIV"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="25dp"
+                        />
+                </RelativeLayout>
+
+                <!--防止支付按钮把最后一个支付方式layout挡住的解决方案-->
+                <!--由于音符支付可能是gone的，所以这样写逻辑最简-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/confirmTV"
+        android:layout_alignParentBottom="true"
+        android:background="#FFD514"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="15dp"
+        android:text="支付¥"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"/>
+</RelativeLayout>

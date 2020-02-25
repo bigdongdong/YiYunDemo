@@ -10,16 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AnticipateInterpolator;
-import android.view.animation.AnticipateOvershootInterpolator;
-import android.view.animation.OvershootInterpolator;
 import android.widget.PopupWindow;
 
+import com.chen.firstdemo.R;
+
+/**
+ * Create by chenxiaodong on 2019/11/25
+ *
+ * 自带渐变阴影的popupwindow
+ * 默认阴影透明度是50%，渐变动画持续200ms
+ */
 public abstract class ShadowPopupWindow extends PopupWindow {
     protected final String TAG = "ShadowPopWindow_TAG";
 
-    protected  Activity context ;
+    protected Activity context ;
     protected View view ;
     private ValueAnimator animator ;
 
@@ -30,19 +34,24 @@ public abstract class ShadowPopupWindow extends PopupWindow {
         if(getLayoutIdOrView() instanceof Integer){
             view = LayoutInflater.from(context).inflate((Integer) getLayoutIdOrView(),null,false);
         }else if(getLayoutIdOrView() instanceof View){
-            view = (View) getLayoutIdOrView();
+            view = (View)  getLayoutIdOrView();
         }
 
-        //以下解决5.0及以下不显示问题
-        this.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
-        this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        this.setContentView(view);
+        this.onCreateView(view);
 
         this.setOutsideTouchable(true);
         this.setFocusable(true);
         this.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //设置null会造成5.0及以下点击外部不消失问题
 
-        this.setContentView(view);
-        this.onCreateView(view);
+        //以下解决5.0及以下不显示问题
+        this.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        if(getAnimationStyle() != -1){
+            this.setAnimationStyle(getAnimationStyle());
+
+        }
 
         animator = new ValueAnimator();
         animator.setInterpolator(new AccelerateDecelerateInterpolator()); //设置动画为先加速在减速(开始速度最快 逐渐减慢)
@@ -50,6 +59,10 @@ public abstract class ShadowPopupWindow extends PopupWindow {
         animator.addUpdateListener(
                 value -> setBackgroundAlpha((float)value.getAnimatedValue())
         );
+    }
+
+    public int getAnimationStyle(){
+        return -1;
     }
 
     protected abstract void onCreateView(View view);

@@ -47,7 +47,16 @@ public abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extend
         if(isInitialize == true){
             isInitialize = false ;
         }
-        this.listData = listData ;
+
+        if(this.listData == null){
+            this.listData = new ArrayList<>();
+        }else{
+            this.listData.clear();
+        }
+
+        if(listData != null){
+            this.listData.addAll(listData) ;
+        }
         notifyDataSetChanged();
     }
 
@@ -59,7 +68,9 @@ public abstract class HFEAdapter<Bean,VH extends RecyclerView.ViewHolder> extend
         if(this.listData == null){
             this.listData = new ArrayList<>();
         }
-        this.listData.addAll(listData);
+        if(listData != null){
+            this.listData.addAll(listData) ;
+        }
         notifyDataSetChanged();
     }
 

@@ -22,7 +22,7 @@ public class DialogActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                new WatchPopWindow(context).showCenteral(R.layout.activity_dialog);
+                new WatchPopWindow(context).show(R.layout.activity_dialog);
             }
         });
     }
