@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".clip_path_demo.ClipPathActivity">
+    tools:context=".clip_path_demo.ClipPathActivity"
+    android:background="#CCCCCC"
+    >
 
     <com.chen.firstdemo.clip_path_demo.clip_path_view.RadiusImageView
+        android:id="@+id/riv"
+        android:layout_centerInParent="true"
         android:layout_margin="20dp"
-        android:src="@mipmap/beauty"
         android:scaleType="centerCrop"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="200dp"
         tools:ignore="MissingConstraints" />
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

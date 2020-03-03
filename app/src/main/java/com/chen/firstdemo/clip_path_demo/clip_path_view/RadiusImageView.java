@@ -6,6 +6,7 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 
 /**
  * void addRoundRect (RectF rect, float[] radii, Path.Direction dir)
@@ -20,9 +21,10 @@ import android.util.AttributeSet;
  * float rx：所产生圆角的椭圆的横轴半径；
  * float ry：所产生圆角的椭圆的纵轴半径
  */
-public class RadiusImageView extends AppCompatImageView {
+public class RadiusImageView extends ImageView {
     //圆角弧度
-    private float[] rids = {dip2px(10), dip2px(10), dip2px(10), dip2px(10), 0.0f, 0.0f, 0.0f, 0.0f,};
+    private float[] rids = {dip2px(20), dip2px(20), dip2px(20), dip2px(20),
+            dip2px(20), dip2px(20), dip2px(20), dip2px(20)};
 
     public RadiusImageView(Context context) {
         super(context);

@@ -56,7 +56,6 @@ public class StartActivity extends AppCompatActivity {
                 NotificationActivity.class,
                 PagerActivity.class,
                 ViewStubActivity.class,
-                ClipPathActivity.class,
                 RankImageViewActivity.class,
                 BottomTab2Activity.class,
                 SelectTabActivity.class,
@@ -76,6 +75,7 @@ public class StartActivity extends AppCompatActivity {
                 MyWalletActivity.class,
                 MatrixActivity.class,
                 DragRecyclerDeniActivity.class,
+                ClipPathActivity.class,
 
 
 
@@ -116,9 +116,4 @@ public class StartActivity extends AppCompatActivity {
         linearLayout.addView(button);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i("aaa", "onDestroy: ");
-    }
 }
