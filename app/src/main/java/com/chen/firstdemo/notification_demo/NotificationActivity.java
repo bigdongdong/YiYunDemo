@@ -10,12 +10,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RemoteViews;
 
 
 import com.chen.firstdemo.R;
@@ -69,6 +71,35 @@ public class NotificationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 /*发送notification通知*/
                 sendNotification((int) Math.random(),"channel2");
+            }
+        });
+        linearLayout.addView(button);
+
+
+        button = new Button(this);
+        params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(10,10,10,10);
+        button.setLayoutParams(params);
+        button.setAllCaps(false);
+        button.setText("发送进度条");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*发送notification通知*/
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < 101; i += 5) {
+                            senProcessNotification(i);
+                            try {
+                                Thread.sleep(200);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                });
             }
         });
         linearLayout.addView(button);
@@ -200,5 +231,62 @@ public class NotificationActivity extends AppCompatActivity {
 
         }
 
+    }
+
+
+    private final int notification_id = 111 ;
+    private void senProcessNotification(int process){
+        /**
+         * 1、首先需要一个NotificationManager来进行管理，
+         */
+        NotificationManager notificationManager = (NotificationManager)this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        /**
+         * 一下是android 8.0需要的
+         */
+        NotificationChannel channel = null;
+        String channelId = "音淘版本更新下载CHANNEL";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            channel = new NotificationChannel(
+                    channelId,
+                    "CHANNEL_NAME",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            channel.enableLights(true);//闪光灯
+            channel.setLockscreenVisibility(VISIBILITY_SECRET);//锁屏显示通知
+            channel.setLightColor(Color.BLUE);//闪关灯的灯光颜色
+            channel.enableVibration(false);//是否允许震动
+//            channel.setVibrationPattern(new long[]{100, 100, 200});//设置震动模式
+//            channel.setBypassDnd(true);//设置可绕过 请勿打扰模式
+            notificationManager.createNotificationChannel(channel);//创建channel
+        }
+
+        if(process == 100){
+            notificationManager.cancel(notification_id);
+            return;
+        }
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+                new Intent(),
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        RemoteViews remoteViews = new RemoteViews(getPackageName(),R.layout.notification_process);
+        remoteViews.setProgressBar(R.id.processBar,100,process,false);
+        remoteViews.setTextViewText(R.id.processTV,"下载..."+process+"%");
+
+        Notification.Builder builder = new Notification.Builder(this)
+                .setContent(remoteViews)
+                .setSmallIcon(R.mipmap.main_tab_center_view)
+                .setContentIntent(pendingIntent)
+                .setWhen(System.currentTimeMillis());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder.setChannelId(channelId);
+        }
+
+        Notification notification = builder.build();
+
+
+        notificationManager.notify(notification_id,notification);
     }
 }

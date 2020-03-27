@@ -3,19 +3,16 @@ package com.chen.firstdemo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.chen.firstdemo.anim_demo.AnimActivity;
 import com.chen.firstdemo.banner_demo_github.Banner2Activity;
 import com.chen.firstdemo.bitmap_mix_demo.BitmapMixActivity;
 import com.chen.firstdemo.bottom_tab_demo.BottomTabActivity;
 import com.chen.firstdemo.bottom_tab_demo_2.BottomTab2Activity;
 import com.chen.firstdemo.chen_jin_pop_demo.ChenjinInputActivity;
 import com.chen.firstdemo.chen_jin_pop_demo.ChenjinPopActivity;
-import com.chen.firstdemo.clip_path_demo.ClipPathActivity;
 import com.chen.firstdemo.dialog_demo.DialogActivity;
 import com.chen.firstdemo.diy_view_demo.DIYViewActivity;
 import com.chen.firstdemo.drag_recycler_demo.DragRecyclerDeniActivity;
@@ -26,15 +23,17 @@ import com.chen.firstdemo.lazy_fragment.LazyLoadActivity;
 import com.chen.firstdemo.matrix_demo.MatrixActivity;
 import com.chen.firstdemo.my_wallet_demo.MyWalletActivity;
 import com.chen.firstdemo.notification_demo.NotificationActivity;
-import com.chen.firstdemo.pager_demo.PagerActivity;
+import com.chen.firstdemo.recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity;
+import com.chen.firstdemo.viewpager_demo.PagerActivity;
 import com.chen.firstdemo.progress_imageview_demo.ProgressImageViewActivity;
 import com.chen.firstdemo.rank_imageview_demo.RankImageViewActivity;
-import com.chen.firstdemo.recycler_manager_demo.RecyclerManagerActivity;
 import com.chen.firstdemo.scrollview_toolbar.ScrollViewToolbarActivity;
 import com.chen.firstdemo.select_tab_demo.SelectTabActivity;
 import com.chen.firstdemo.shape_demo.ShapeActivity;
+import com.chen.firstdemo.sticky_demo.StickyActivity;
 import com.chen.firstdemo.utils.ScreenUtil;
 import com.chen.firstdemo.scroller_demo.ViewGroupActivity;
+import com.chen.firstdemo.wheel_anim_demo.ViewpagerAnimActivity;
 import com.chen.firstdemo.viewstub_demo.ViewStubActivity;
 
 public class StartActivity extends AppCompatActivity {
@@ -53,8 +52,6 @@ public class StartActivity extends AppCompatActivity {
                 BottomTabActivity.class,
                 FloatingWindowActivity.class,
                 GreendaoActivity.class,
-                NotificationActivity.class,
-                PagerActivity.class,
                 ViewStubActivity.class,
                 RankImageViewActivity.class,
                 BottomTab2Activity.class,
@@ -62,20 +59,22 @@ public class StartActivity extends AppCompatActivity {
                 ProgressImageViewActivity.class,
                 DIYViewActivity.class,
                 DialogActivity.class,
-                Banner2Activity.class,
                 EmptyAdapterActivity.class,
                 ShapeActivity.class,
-                AnimActivity.class,
                 LazyLoadActivity.class,
-                ScrollViewToolbarActivity.class,
-                RecyclerManagerActivity.class,
                 ViewGroupActivity.class,
                 ChenjinInputActivity.class,
                 ChenjinPopActivity.class,
                 MyWalletActivity.class,
                 MatrixActivity.class,
                 DragRecyclerDeniActivity.class,
-                ClipPathActivity.class,
+                ScrollViewToolbarActivity.class,
+                StickyActivity.class,
+                PagerActivity.class,
+                NotificationActivity.class,
+                Banner2Activity.class,
+                ViewpagerAnimActivity.class,
+                RecyclerViewLayoutManagerActivity.class,
 
 
 
@@ -101,8 +100,8 @@ public class StartActivity extends AppCompatActivity {
     private void generateView(String s,final Class c){
         Button button = new Button(this);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(100,30,100,0);
+                250);
+        params.setMargins(100,0,100,0);
         button.setLayoutParams(params);
         button.setText(s+".class");
         button.setAllCaps(false);

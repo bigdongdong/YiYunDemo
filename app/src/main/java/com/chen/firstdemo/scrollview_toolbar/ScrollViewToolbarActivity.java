@@ -23,7 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chen.firstdemo.R;
-import com.chen.firstdemo.pager_demo.MyFragmentPagerAdapter;
+import com.chen.firstdemo.viewpager_demo.MyFragmentPagerAdapter;
 import com.chen.firstdemo.utils.DensityUtil;
 import com.chen.firstdemo.utils.StatusBarUtil;
 
@@ -217,8 +217,7 @@ public class ScrollViewToolbarActivity extends AppCompatActivity implements Stic
     @Override
     protected void onStart() {
         super.onStart();
-//        viewPager.getLayoutParams().height = ScreenUtil.getScreenHeight(this)
-//                - DensityUtil.dip2px(this, 100);
+        viewPager.getLayoutParams().height = 1800 ;
         RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
         p.topMargin = StatusBarUtil.getStatusBarHeight(this);
 

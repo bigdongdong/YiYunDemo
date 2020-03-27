@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recycler_manager_demo.RecyclerManagerActivity"
-
-    android:id="@+id/recyclerView"
+    tools:context=".recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity"
+    android:id="@+id/recycler"
     >
 
 </android.support.v7.widget.RecyclerView>

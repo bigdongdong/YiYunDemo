@@ -7,6 +7,7 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,6 +33,8 @@ import com.chen.firstdemo.utils.StatusBarUtil;
 
 import java.text.NumberFormat;
 
+import javax.annotation.Nullable;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -56,8 +59,6 @@ public class ChenjinPopActivity extends BaseActivity {
             fullScreen(this);
             StatusBarUtil.StatusBarLightMode(this);
             this.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
-//            this.getWindow().getDecorView().setPadding(
-//                    0,StatusBarUtil.getStatusBarHeight(this),0,0);
         }
 
 

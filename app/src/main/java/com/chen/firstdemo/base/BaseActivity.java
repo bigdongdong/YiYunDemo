@@ -2,6 +2,7 @@ package com.chen.firstdemo.base;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -18,4 +19,5 @@ public class BaseActivity extends AppCompatActivity {
         TAG = this.getClass().getSimpleName() + "TAG";
         context = this ;
     }
+
 }

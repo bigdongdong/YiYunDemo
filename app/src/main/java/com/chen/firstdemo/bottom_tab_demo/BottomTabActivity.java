@@ -14,8 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.chen.firstdemo.R;
-import com.chen.firstdemo.pager_demo.MyFragmentPagerAdapter;
-import com.chen.firstdemo.pager_demo.PagerFrament;
+import com.chen.firstdemo.viewpager_demo.MyFragmentPagerAdapter;
+import com.chen.firstdemo.viewpager_demo.PagerFrament;
 
 import java.util.ArrayList;
 

@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".drag_recycler_demo.DragRecyclerDeniActivity"></activity>
+        <activity android:name=".recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity"></activity>
+        <activity android:name=".wheel_anim_demo.WheelRecyclerActivity" />
+        <activity android:name=".wheel_anim_demo.ViewpagerAnimActivity" />
+        <activity android:name=".sticky_demo.StickyActivity" />
+        <activity android:name=".drag_recycler_demo.DragRecyclerDeniActivity" />
         <activity android:name=".matrix_demo.MatrixActivity" />
         <activity
             android:name=".chen_jin_pop_demo.ChenjinInputActivity"
@@ -21,17 +25,13 @@
             android:screenOrientation="portrait" />
         <activity android:name=".my_wallet_demo.MyWalletActivity" />
         <activity android:name=".scroller_demo.ViewGroupActivity" />
-        <activity android:name=".recycler_manager_demo.RecyclerManagerActivity" />
-        <activity android:name=".anim_demo.AnimActivity" />
         <activity android:name=".chen_jin_pop_demo.ChenjinPopActivity" />
-        <activity android:name=".clip_children.ClipChildrenActivity" />
         <activity android:name=".scrollview_toolbar.ScrollViewToolbarActivity" />
         <activity android:name=".shape_demo.ShapeActivity" />
         <activity android:name=".progress_imageview_demo.ProgressImageViewActivity" />
         <activity android:name=".select_tab_demo.SelectTabActivity" />
         <activity android:name=".banner_demo_github.Banner2Activity" />
         <activity android:name=".bottom_tab_demo_2.BottomTab2Activity" />
-        <activity android:name=".clip_path_demo.ClipPathActivity" />
         <activity android:name=".empty_recyclerview.EmptyAdapterActivity" />
         <activity android:name=".viewstub_demo.ViewStubActivity" />
         <activity android:name=".dialog_demo.DialogActivity" />
@@ -54,7 +54,7 @@
         <activity android:name=".greendao_demo.GreendaoActivity" />
         <activity android:name=".bitmap_mix_demo.BitmapMixActivity" />
         <activity android:name=".bottom_tab_demo.BottomTabActivity" />
-        <activity android:name=".pager_demo.PagerActivity" /> <!-- &lt;!&ndash; -->
+        <activity android:name=".viewpager_demo.PagerActivity" /> <!-- &lt;!&ndash; -->
         <!-- 多渠道打包占位符 -->
         <meta-data
             android:name="PRODUCT"

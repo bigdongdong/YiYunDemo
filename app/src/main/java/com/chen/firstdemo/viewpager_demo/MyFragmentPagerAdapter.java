@@ -1,4 +1,4 @@
-package com.chen.firstdemo.pager_demo;
+package com.chen.firstdemo.viewpager_demo;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
