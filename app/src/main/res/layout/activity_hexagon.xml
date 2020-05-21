@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hexagon_view_demo.HexagonActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#C07AB8"
+    android:clipChildren="true"
+    >
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.cxd.regularpolygonview.RegularPolygonView
+            xmlns:rpv="http://schemas.android.com/apk/res-auto"
+            rpv:sides="6"
+            rpv:border_width="3dp"
+            rpv:border_color="#F8C416"
+            rpv:round_radius="15dp"
+            android:src="@mipmap/beauty_3"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            />
+
+        <com.chen.firstdemo.hexagon_view_demo.RhombusImageView
+            android:src="@mipmap/beauty"
+            app:rhombus_color="#F8C416"
+            app:rhombus_corner="10dp"
+            app:rhombus_width="3dp"
+            android:scaleType="centerCrop"
+            android:layout_centerInParent="true"
+            android:layout_width="250dp"
+            android:layout_height="250dp"/>
+        <com.chen.firstdemo.hexagon_view_demo.FangleView
+            android:src="@mipmap/beauty"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"/>
+    </LinearLayout>
+
+</ScrollView>

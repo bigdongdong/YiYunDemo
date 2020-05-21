@@ -26,6 +26,9 @@ public class Keyframes  {
         final PathMeasure pathMeasure = new PathMeasure(path,false);
         pathLength = pathMeasure.getLength();
         mNumPoints = (int) ((pathLength / PRECISION ) + 1); //precision 精度
+        mX = new float[mNumPoints];
+        mY = new float[mNumPoints];
+        mAngle = new float[mNumPoints];
 
         /*临时存放坐标点*/
         float[] position = new float[2];

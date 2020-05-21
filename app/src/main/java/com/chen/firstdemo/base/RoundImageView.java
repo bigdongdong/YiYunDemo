@@ -13,7 +13,7 @@ import android.widget.ImageView;
  */
 public class RoundImageView extends android.support.v7.widget.AppCompatImageView {
     //圆角弧度
-    private float[] rids = {dip2px(20), dip2px(20), dip2px(20), dip2px(20),
+    private final float[] rids = {dip2px(20), dip2px(20), dip2px(20), dip2px(20),
             dip2px(20), dip2px(20), dip2px(20), dip2px(20)};
 
     public RoundImageView(Context context) {

@@ -420,15 +420,22 @@
     </declare-styleable>
 
     <!-- 吸顶 -->
-    <declare-styleable name="StickyScrollView">
-        <attr name="stuckShadowHeight" format="dimension" />
-        <attr name="stuckShadowDrawable" format="reference" />
-    </declare-styleable>
+<!--    <declare-styleable name="StickyScrollView">-->
+<!--        <attr name="stuckShadowHeight" format="dimension" />-->
+<!--        <attr name="stuckShadowDrawable" format="reference" />-->
+<!--    </declare-styleable>-->
 
 
     <!--   圆角描边的图片 -->
     <declare-styleable name="RoundCornerImageView">
         <attr name="rcv_radius" format="dimension" />
         <attr name="rcv_fill_color" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RhombusImageView">
+        <attr name="rhombus_color" format="color"/>
+        <attr name="rhombus_corner" format="dimension"/>
+        <attr name="rhombus_width" format="dimension"/>
     </declare-styleable>
 </resources>

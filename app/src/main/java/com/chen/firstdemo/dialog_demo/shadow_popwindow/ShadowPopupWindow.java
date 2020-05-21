@@ -14,6 +14,7 @@ import android.widget.PopupWindow;
 
 import com.chen.firstdemo.R;
 
+
 /**
  * Create by chenxiaodong on 2019/11/25
  *
@@ -38,20 +39,16 @@ public abstract class ShadowPopupWindow extends PopupWindow {
         }
 
         this.setContentView(view);
-        this.onCreateView(view);
 
         this.setOutsideTouchable(true);
         this.setFocusable(true);
         this.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //设置null会造成5.0及以下点击外部不消失问题
 
+//        this.setAnimationStyle(R.style.pop_alpha_animation);
+
         //以下解决5.0及以下不显示问题
         this.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-
-        if(getAnimationStyle() != -1){
-            this.setAnimationStyle(getAnimationStyle());
-
-        }
 
         animator = new ValueAnimator();
         animator.setInterpolator(new AccelerateDecelerateInterpolator()); //设置动画为先加速在减速(开始速度最快 逐渐减慢)
@@ -59,10 +56,8 @@ public abstract class ShadowPopupWindow extends PopupWindow {
         animator.addUpdateListener(
                 value -> setBackgroundAlpha((float)value.getAnimatedValue())
         );
-    }
 
-    public int getAnimationStyle(){
-        return -1;
+        this.onCreateView(view);
     }
 
     protected abstract void onCreateView(View view);
@@ -70,8 +65,7 @@ public abstract class ShadowPopupWindow extends PopupWindow {
     protected abstract Object getLayoutIdOrView();
 
     public void showCenteral(int layoutId){
-        this.showAtLocation(LayoutInflater.from(context).inflate(layoutId,null,false),
-                Gravity.CENTER,0,0);
+        this.showCenteral(LayoutInflater.from(context).inflate(layoutId,null,false));
     }
 
     public void showCenteral(View parent){
@@ -80,16 +74,20 @@ public abstract class ShadowPopupWindow extends PopupWindow {
 
     @Override
     public void showAtLocation(View parent, int gravity, int x, int y) {
-        super.showAtLocation(parent, gravity, x, y);
-        animator.setFloatValues(1.0f,getAnimatorAlpha());
-        animator.start();
+        if(context != null && context.isFinishing() == false){
+            super.showAtLocation(parent, gravity, x, y);
+            animator.setFloatValues(1.0f,getAnimatorAlpha());
+            animator.start();
+        }
     }
 
     @Override
     public void showAsDropDown(View anchor, int xoff, int yoff, int gravity) {
-        super.showAsDropDown(anchor, xoff, yoff, gravity);
-        animator.setFloatValues(1.0f,getAnimatorAlpha());
-        animator.start();
+        if(context != null && context.isFinishing() == false){
+            super.showAsDropDown(anchor, xoff, yoff, gravity);
+            animator.setFloatValues(1.0f,getAnimatorAlpha());
+            animator.start();
+        }
     }
 
     @Override

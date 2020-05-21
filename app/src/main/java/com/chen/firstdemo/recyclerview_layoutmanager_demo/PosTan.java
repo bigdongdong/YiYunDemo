@@ -23,6 +23,9 @@ public class PosTan extends PointF {
      */
     private float angle;
 
+    public PosTan() {
+    }
+
     public PosTan(PosTan posTan, int i, float fraction) {
         this.x = posTan.x ;
         this.y = posTan.y ;

@@ -13,24 +13,27 @@ import com.chen.firstdemo.bottom_tab_demo.BottomTabActivity;
 import com.chen.firstdemo.bottom_tab_demo_2.BottomTab2Activity;
 import com.chen.firstdemo.chen_jin_pop_demo.ChenjinInputActivity;
 import com.chen.firstdemo.chen_jin_pop_demo.ChenjinPopActivity;
+import com.chen.firstdemo.clipview_demo.ClipViewDemoActivity;
 import com.chen.firstdemo.dialog_demo.DialogActivity;
 import com.chen.firstdemo.diy_view_demo.DIYViewActivity;
 import com.chen.firstdemo.drag_recycler_demo.DragRecyclerDeniActivity;
 import com.chen.firstdemo.empty_recyclerview.EmptyAdapterActivity;
 import com.chen.firstdemo.floating_window_demo.FloatingWindowActivity;
+import com.chen.firstdemo.glide_webp_demo.GlideWebpActivity;
 import com.chen.firstdemo.greendao_demo.GreendaoActivity;
+import com.chen.firstdemo.hexagon_view_demo.HexagonActivity;
 import com.chen.firstdemo.lazy_fragment.LazyLoadActivity;
 import com.chen.firstdemo.matrix_demo.MatrixActivity;
 import com.chen.firstdemo.my_wallet_demo.MyWalletActivity;
 import com.chen.firstdemo.notification_demo.NotificationActivity;
 import com.chen.firstdemo.recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity;
+import com.chen.firstdemo.sticky_nest_scrollview_demo.StickyNestScrollViewActivity;
 import com.chen.firstdemo.viewpager_demo.PagerActivity;
 import com.chen.firstdemo.progress_imageview_demo.ProgressImageViewActivity;
 import com.chen.firstdemo.rank_imageview_demo.RankImageViewActivity;
 import com.chen.firstdemo.scrollview_toolbar.ScrollViewToolbarActivity;
 import com.chen.firstdemo.select_tab_demo.SelectTabActivity;
 import com.chen.firstdemo.shape_demo.ShapeActivity;
-import com.chen.firstdemo.sticky_demo.StickyActivity;
 import com.chen.firstdemo.utils.ScreenUtil;
 import com.chen.firstdemo.scroller_demo.ViewGroupActivity;
 import com.chen.firstdemo.wheel_anim_demo.ViewpagerAnimActivity;
@@ -69,12 +72,15 @@ public class StartActivity extends AppCompatActivity {
                 MatrixActivity.class,
                 DragRecyclerDeniActivity.class,
                 ScrollViewToolbarActivity.class,
-                StickyActivity.class,
                 PagerActivity.class,
                 NotificationActivity.class,
                 Banner2Activity.class,
                 ViewpagerAnimActivity.class,
                 RecyclerViewLayoutManagerActivity.class,
+                GlideWebpActivity.class,
+                ClipViewDemoActivity.class,
+                HexagonActivity.class,
+                StickyNestScrollViewActivity.class,
 
 
 
@@ -100,7 +106,7 @@ public class StartActivity extends AppCompatActivity {
     private void generateView(String s,final Class c){
         Button button = new Button(this);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                250);
+                200);
         params.setMargins(100,0,100,0);
         button.setLayoutParams(params);
         button.setText(s+".class");
