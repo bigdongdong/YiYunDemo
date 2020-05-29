@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".multiple_img_view.MultipleImgViewActivity">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridLayout
+            android:columnCount = "3"
+            android:orientation = "horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv3"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv4"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv5"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv6"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv7"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv8"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+                android:id="@+id/miv9"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+        </GridLayout>
+
+        <Button
+            android:id="@+id/uiButton"
+            android:layout_marginTop="20dp"
+            android:text="UI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</ScrollView>

@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".sticky_nest_scrollview_demo.StickyNestScrollViewActivity"></activity>
+        <activity android:name=".multiple_img_view.MultipleImgViewActivity"></activity>
+        <activity android:name=".sticky_nest_scrollview_demo.StickyNestScrollViewActivity" />
         <activity android:name=".hexagon_view_demo.HexagonActivity" />
         <activity android:name=".clipview_demo.ClipViewDemoActivity" />
         <activity android:name=".glide_webp_demo.GlideWebpActivity" />

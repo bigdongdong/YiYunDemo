@@ -24,6 +24,7 @@ import com.chen.firstdemo.greendao_demo.GreendaoActivity;
 import com.chen.firstdemo.hexagon_view_demo.HexagonActivity;
 import com.chen.firstdemo.lazy_fragment.LazyLoadActivity;
 import com.chen.firstdemo.matrix_demo.MatrixActivity;
+import com.chen.firstdemo.multiple_img_view.MultipleImgViewActivity;
 import com.chen.firstdemo.my_wallet_demo.MyWalletActivity;
 import com.chen.firstdemo.notification_demo.NotificationActivity;
 import com.chen.firstdemo.recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity;
@@ -81,6 +82,7 @@ public class StartActivity extends AppCompatActivity {
                 ClipViewDemoActivity.class,
                 HexagonActivity.class,
                 StickyNestScrollViewActivity.class,
+                MultipleImgViewActivity.class,
 
 
 
