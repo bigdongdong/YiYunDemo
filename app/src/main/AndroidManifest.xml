@@ -15,18 +15,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".multiple_img_view.MultipleImgViewActivity"></activity>
+        <activity android:name=".dialog.DialogActivity"></activity>
+        <activity android:name=".charts.ChartsActivity" />
+        <activity android:name=".new_beiyu.NewBeiyuActivity" />
+        <activity android:name=".surfaceview_demo.SurfaceViewDemoActivity" />
+        <activity android:name=".suscat.OtherApplicationsActivity" />
+        <activity android:name=".gauss_blur_demo.GaussBlurActivity" />
+        <activity android:name=".multiple_img_view.MultipleImgViewActivity" />
         <activity android:name=".sticky_nest_scrollview_demo.StickyNestScrollViewActivity" />
+        <activity android:name=".douyin_popwindow_demo.DouyinPopActivity" />
+        <activity android:name=".recyclers.hover_recycler_demo.HoverRecyclerActivity" />
         <activity android:name=".hexagon_view_demo.HexagonActivity" />
         <activity android:name=".clipview_demo.ClipViewDemoActivity" />
         <activity android:name=".glide_webp_demo.GlideWebpActivity" />
-        <activity android:name=".take_photo_demo.TakePhotoBucketActivity" />
-        <activity android:name=".take_photo_demo.TakePhotoActivity" />
-        <activity android:name=".recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity" />
-        <activity android:name=".wheel_anim_demo.WheelRecyclerActivity" />
-        <activity android:name=".wheel_anim_demo.ViewpagerAnimActivity" />
-        <activity android:name=".sticky_demo.StickyActivity" />
-        <activity android:name=".drag_recycler_demo.DragRecyclerDeniActivity" />
+        <activity android:name=".recyclers.recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity" />
+        <activity android:name=".viewpagers.viewpager_demo.wheel_anim_demo.ViewpagerAnimActivity" />
+        <activity android:name=".recyclers.drag_recycler_demo.DragRecyclerDeniActivity" />
         <activity android:name=".matrix_demo.MatrixActivity" />
         <activity
             android:name=".chen_jin_pop_demo.ChenjinInputActivity"
@@ -40,10 +44,8 @@
         <activity android:name=".progress_imageview_demo.ProgressImageViewActivity" />
         <activity android:name=".select_tab_demo.SelectTabActivity" />
         <activity android:name=".banner_demo_github.Banner2Activity" />
-        <activity android:name=".bottom_tab_demo_2.BottomTab2Activity" />
-        <activity android:name=".empty_recyclerview.EmptyAdapterActivity" />
-        <activity android:name=".viewstub_demo.ViewStubActivity" />
-        <activity android:name=".dialog_demo.DialogActivity" />
+        <activity android:name=".bottom_tabs.bottom_tab_demo_2.BottomTab2Activity" />
+        <activity android:name=".recyclers.empty_recyclerview.EmptyAdapterActivity" />
         <activity android:name=".lazy_fragment.LazyLoadActivity" />
         <activity android:name=".rank_imageview_demo.RankImageViewActivity" />
         <activity android:name=".diy_view_demo.DIYViewActivity" />
@@ -62,8 +64,8 @@
         <activity android:name=".notification_demo.NotificationActivity" />
         <activity android:name=".greendao_demo.GreendaoActivity" />
         <activity android:name=".bitmap_mix_demo.BitmapMixActivity" />
-        <activity android:name=".bottom_tab_demo.BottomTabActivity" />
-        <activity android:name=".viewpager_demo.PagerActivity" /> <!-- &lt;!&ndash; -->
+        <activity android:name=".bottom_tabs.bottom_tab_demo.BottomTabActivity" />
+        <activity android:name=".viewpagers.viewpager_demo.PagerActivity" /> <!-- &lt;!&ndash; -->
         <!-- 多渠道打包占位符 -->
         <meta-data
             android:name="PRODUCT"

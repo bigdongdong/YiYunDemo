@@ -23,7 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chen.firstdemo.R;
-import com.chen.firstdemo.viewpager_demo.MyFragmentPagerAdapter;
+import com.chen.firstdemo.viewpagers.viewpager_demo.MyFragmentPagerAdapter;
 import com.chen.firstdemo.utils.DensityUtil;
 import com.chen.firstdemo.utils.StatusBarUtil;
 

@@ -1,32 +1,45 @@
 package com.chen.firstdemo.sticky_nest_scrollview_demo;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 
 import com.chen.firstdemo.R;
 
+/**
+ * 可以悬停子view的scrollView 继承自NestedScrollView
+ * 但是有一个致命缺点，只支持API 21 及以上
+ */
 public class StickyScrollView extends NestedScrollView {
-
     private final String TAG = "StickyScrollView" ;
-    private int mHeaderId ;
     private int mOffsetY = 0;
-    private View mHeadView ;
+    private int mHeaderViewId ;
+    private View mHeaderView ;
 
-    @SuppressLint("ResourceType")
-    public StickyScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public StickyScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ssv);
-        mHeaderId = ta.getResourceId(R.styleable.ssv_header,0);
-        Log.i(TAG, "StickyScrollView: "+R.styleable.ssv_header);
+        final TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ssv);
+        mHeaderViewId = ta.getResourceId(R.styleable.ssv_header,0);
+
+        this.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                mHeaderView = StickyScrollView.this.findViewById(mHeaderViewId);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    mHeaderView.setTranslationZ(1);
+                }
+                StickyScrollView.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
+
     }
 
     @Override
@@ -36,22 +49,30 @@ public class StickyScrollView extends NestedScrollView {
         /*计算高度*/
         if(getChildCount() > 0 && mOffsetY == 0){
             ViewGroup vp = (ViewGroup) getChildAt(0);
-            View v ;
             for (int i = 0; i < vp.getChildCount(); i++) {
-                v = getChildAt(i);
+                View v = vp.getChildAt(i);
+
                 if(v == null){
                     continue;
                 }
 
-                mOffsetY += v.getMeasuredHeight();
-
-                if(v.getId() == mHeaderId){
+                //此时mHeaderView还没绘制完成，
+                // 所以mHeaderView是null，只能用view的id判断
+                if(v.getId() == mHeaderViewId){
                     break;
                 }
+
+                mOffsetY += v.getMeasuredHeight();
             }
         }
-        Log.i(TAG, "onLayout: " + mHeaderId);
+    }
 
-        Log.i(TAG, "onMeasure: "+ mOffsetY);
+    @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && t > mOffsetY && mHeaderView != null){
+            mHeaderView.setTranslationY(t - mOffsetY);
+        }
     }
 }

@@ -59,7 +59,7 @@ public class Banner2Activity extends AppCompatActivity {
                 .layoutStyle(Banner.LAYOUT_STYLE_IMAGEVIEW)
                 .banners(list)
                 .playStyle(Banner.PLAY_STYLE_JUST_GO)
-                .stayDuration(1000)
+                .stayDuration(300)
                 .onSelectedListener(new OnSelectedListener<ImageView,Integer>() {
                     @Override
                     public void onSelectedListener(ImageView view, Integer integer, int position) {

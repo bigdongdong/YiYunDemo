@@ -36,6 +36,10 @@
         <item name="android:windowExitAnimation">@anim/pop_bottom_out</item>
     </style>
 
-
+    <!--dialog弹框背景全透明-->
+    <style name="dialog_tran_chenxiaodong" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 
 </resources>

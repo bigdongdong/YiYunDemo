@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,16 +25,27 @@ import android.view.ViewTreeObserver;
  */
 public abstract class LazyFragment extends Fragment {
 
+    private final String TAG = "LazyFragment";
     private Boolean isAlreadyInvokedLazyLoad  = false;  //是否已经加载过lazyLoad
     protected Activity context ;
 
     View view ;
+    
+    //返回布局id
+    protected abstract int getLayoutId();
+    
+
+    protected abstract void onBundle(Bundle arguments);
+    
+    
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.i(TAG, "onCreateView: ");
         view = LayoutInflater.from(this.getContext()).inflate(getLayoutId() ,container,false);
         context = this.getActivity();
         onCreateView(view);
+//        onBundle(getArguments());
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -52,6 +64,14 @@ public abstract class LazyFragment extends Fragment {
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        Log.i(TAG, "onActivityCreated: ");
+        super.onActivityCreated(savedInstanceState);
+//        initialize();
+    }
+    
+
+    @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
 
@@ -60,12 +80,11 @@ public abstract class LazyFragment extends Fragment {
         }
     }
 
-    //返回布局id
-    protected abstract int getLayoutId();
-
     //初始化View
     protected abstract void onCreateView(View view);
 
+    protected abstract void initialize();
+    
     //实现懒加载
     protected abstract void  lazyLoad();
 

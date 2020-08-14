@@ -5,9 +5,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.media.Image;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +17,7 @@ import android.widget.TextView;
 
 import com.chen.firstdemo.R;
 import com.chen.firstdemo.base.BaseActivity;
-import com.chen.firstdemo.empty_recyclerview.adapters.QuickAdapter;
+import com.chen.firstdemo.recyclers.empty_recyclerview.adapters.QuickAdapter;
 import com.chen.firstdemo.utils.DensityUtil;
 import com.chen.firstdemo.utils.ScreenUtil;
 

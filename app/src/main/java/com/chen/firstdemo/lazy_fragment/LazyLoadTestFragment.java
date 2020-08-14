@@ -1,6 +1,7 @@
 package com.chen.firstdemo.lazy_fragment;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -25,12 +26,22 @@ public class LazyLoadTestFragment extends LazyFragment{
     }
 
     @Override
+    protected void onBundle(Bundle arguments) {
+
+    }
+
+    @Override
     protected void onCreateView(View view) {
         tv = view.findViewById(R.id.tv);
         tv.setText(""+position);
-//        for(int i = 0 ;i<10000;i++){
-//            System.out.println(i);
-//        }
+        for(int i = 0 ;i<1000;i++){
+            System.out.println(i);
+        }
+    }
+
+    @Override
+    protected void initialize() {
+
     }
 
     @SuppressLint("LongLogTag")

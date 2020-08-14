@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.chen.firstdemo.R;
-import com.chen.firstdemo.dialog_demo.shadow_popwindow.ShadowPopupWindow;
+import com.chen.firstdemo.base.ShadowPopupWindow;
 
 public class TopPop extends ShadowPopupWindow {
     public TopPop(Activity context) {

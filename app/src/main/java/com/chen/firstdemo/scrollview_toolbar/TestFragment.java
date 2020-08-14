@@ -1,5 +1,6 @@
 package com.chen.firstdemo.scrollview_toolbar;
 
+import android.os.Bundle;
 import android.view.View;
 
 import com.chen.firstdemo.R;
@@ -12,7 +13,17 @@ public class TestFragment extends LazyFragment {
     }
 
     @Override
+    protected void onBundle(Bundle arguments) {
+
+    }
+
+    @Override
     protected void onCreateView(View view) {
+
+    }
+
+    @Override
+    protected void initialize() {
 
     }
 

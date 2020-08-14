@@ -8,9 +8,11 @@ import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
-import com.chen.firstdemo.shape_demo.HornShape;
+import com.chen.firstdemo.base.HornShape;
 import com.chen.firstdemo.shape_demo.WindowFlowerShape;
+import com.chen.firstdemo.utils.DensityUtil;
 
 public class DIYViewActivity extends AppCompatActivity {
 
@@ -20,11 +22,19 @@ public class DIYViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ScrollView sv = new ScrollView(this);
+        params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        sv.setLayoutParams(params);
+
         linearLayout = new LinearLayout(this);
         params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         linearLayout.setLayoutParams(params);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setClipChildren(false);
+        sv.addView(linearLayout);
+
         ShadowView shadowView = new ShadowView(this) ;
         params = new LinearLayout.LayoutParams(400,
                 400);
@@ -55,7 +65,15 @@ public class DIYViewActivity extends AppCompatActivity {
         iv.setBackground(new ShapeDrawable(new WindowFlowerShape()));
         linearLayout.addView(iv);
 
-        this.setContentView(linearLayout);
+
+        ArrowShadowPopView aspv = new ArrowShadowPopView(this);
+        params = new LinearLayout.LayoutParams(DensityUtil.dip2px(this,100),
+                DensityUtil.dip2px(this,105));
+        params.topMargin = 100 ;
+        aspv.setLayoutParams(params);
+        linearLayout.addView(aspv);
+
+        this.setContentView(sv);
 
     }
 }

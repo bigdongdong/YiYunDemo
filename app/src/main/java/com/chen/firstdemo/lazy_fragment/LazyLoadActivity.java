@@ -7,11 +7,9 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.LinearLayout;
 
 import com.chen.firstdemo.R;
-import com.chen.firstdemo.bottom_tab_demo.BottomTabView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +22,7 @@ public class LazyLoadActivity extends AppCompatActivity {
     List<String> tabs ;
     LazyLoadTestFragment fragment ;
     List<Fragment> fragments ;
-    final int count = 2 ;
+    final int count = 4 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

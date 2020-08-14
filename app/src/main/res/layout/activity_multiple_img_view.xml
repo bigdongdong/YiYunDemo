@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".multiple_img_view.MultipleImgViewActivity">
+    android:background="#333333"
+    >
 
     <LinearLayout
         android:gravity="center"
@@ -16,56 +17,110 @@
             android:orientation = "horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv1"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv2"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv3"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv4"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv5"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv6"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv7"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv8"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
-            <com.chen.firstdemo.multiple_img_view.MultipleImgView
+            <com.chen.firstdemo.multiple_img_view.WXHeadView
                 android:id="@+id/miv9"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv3"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv4"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv5"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv6"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv7"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv8"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <com.chen.firstdemo.multiple_img_view.DDHeadView
+                android:id="@+id/ddhv9"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
