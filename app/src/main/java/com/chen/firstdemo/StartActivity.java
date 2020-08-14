@@ -93,8 +93,8 @@ public class StartActivity extends AppCompatActivity {
                 Banner2Activity.class,
                 NewBeiyuActivity.class,
                 DIYViewActivity.class,
-                ChartsActivity.class,
                 DialogActivity.class,
+                ChartsActivity.class,
 
 
 
