@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -24,6 +25,17 @@ public abstract class BaseDialog extends Dialog {
 
         //设置不显示对话框标题
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+    }
+
+    protected abstract void onConfig(Config c);
+    protected abstract void onCreateView(View view);
+    protected abstract Object getLayoutOrView();
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         onConfig(c); //配置
 
@@ -57,12 +69,7 @@ public abstract class BaseDialog extends Dialog {
         this.setCanceledOnTouchOutside(c.canceledOnTouchOutside);
 
         onCreateView(view);
-
     }
-
-    protected abstract void onConfig(Config c);
-    protected abstract void onCreateView(View view);
-    protected abstract Object getLayoutOrView();
 
     /**
      * 配置清单

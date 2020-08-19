@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:orientation="horizontal"
+    >
+    <ImageView
+        android:id="@+id/canvasIV"
+        android:layout_width="35dp"
+        android:layout_height="match_parent" />
+    <EditText
+        android:id="@+id/edittext"
+        android:hint="..."
+        android:background="@drawable/mm_node_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="100dp"
+        android:padding="5dp"
+        android:maxLength="12"
+        />
+    <ImageView
+        android:id="@+id/openIV"
+        android:padding="10dp"
+        android:src="@mipmap/mm_open"
+        android:layout_width="35dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

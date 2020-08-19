@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MM_DisplayActivity"
+
+    >
+        <!--<ImageView-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:background="@mipmap/mm_shuiyin"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+        <ScrollView
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/mainLayout"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </RelativeLayout>
+
+        </ScrollView>
+        <FrameLayout
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="#A4A4A4"
+                    android:text="图片来自：@上体掌中宝"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </FrameLayout>
+
+</RelativeLayout>

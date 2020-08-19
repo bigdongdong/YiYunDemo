@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#10111111"
+    >
+
+    <EditText
+        android:id="@+id/editText"
+        android:text="示例：\n计算机\n#硬件\n##CPU\n##内存条\n##主板\n##硬盘\n#用途\n##家用电脑\n##服务器\n#操作系统\n##微软\n##苹果\n##Linux\n#软件\n##谷歌浏览器\n##酷狗音乐\n##Office办公软件\n##..."
+        android:gravity="left"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        />
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/clearupButton"
+            android:textSize="16dp"
+            android:text="清空"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:id="@+id/button"
+            android:textSize="16dp"
+            android:padding="10dp"
+            android:text="  一键生成思维导图  "
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/spitButton"
+        android:src="@mipmap/mm_spit"
+        android:layout_marginTop="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerInside"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+    <ImageButton
+        android:id="@+id/huicheButton"
+        android:src="@mipmap/mm_huiche"
+        android:layout_marginTop="210dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerInside"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+</RelativeLayout>

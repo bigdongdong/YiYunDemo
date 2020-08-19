@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.otherdemos">
+
+
+    <!--
+    正式：180翻转的横屏
+    android:screenOrientation="sensorLandscape"
+    -->
+    <application
+
+        >
+        <!--课表-->
+        <activity android:name=".paintDemo.myActivity.PaintDemoMainActivity"
+            android:screenOrientation="sensorLandscape"
+            >
+        </activity>
+        <!--思维导图入口-->
+        <activity android:name=".mindMappingDemo.mindMappingDemo.MM_DemoActivity"/>
+        <activity
+                android:name=".mindMappingDemo.mindMappingDemo.MM_DisplayActivity"
+                android:screenOrientation="landscape" />
+        <!--自由绘画入口-->
+        <activity android:name=".freePaintDemo.FreePaint_MainActivity">
+
+        </activity>
+    </application>
+
+</manifest>

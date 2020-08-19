@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#55111111"
+    >
+    <com.example.otherdemos.paintDemo.customView.CustomPopItemView
+        android:id="@+id/item_add"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+    </com.example.otherdemos.paintDemo.customView.CustomPopItemView>
+    <com.example.otherdemos.paintDemo.customView.CustomPopItemView
+        android:visibility="gone"
+        android:id="@+id/item_save"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+    </com.example.otherdemos.paintDemo.customView.CustomPopItemView>
+    <com.example.otherdemos.paintDemo.customView.CustomPopItemView
+        android:id="@+id/item_cleanup"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+    </com.example.otherdemos.paintDemo.customView.CustomPopItemView>
+    <com.example.otherdemos.paintDemo.customView.CustomPopItemView
+        android:id="@+id/item_exit"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+    </com.example.otherdemos.paintDemo.customView.CustomPopItemView>
+
+
+
+</LinearLayout>

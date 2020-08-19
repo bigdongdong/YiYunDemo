@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/paint_class_background"
+    android:padding="3dp"
+    >
+    <TextView
+        android:textColor="#333333"
+        android:id="@+id/textView"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:gravity="center|bottom"
+        android:text="运筹学 2202"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        />
+    <TextView
+        android:text="老教323"
+        android:textSize="14dp"
+        android:id="@+id/textRoom"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+</LinearLayout>

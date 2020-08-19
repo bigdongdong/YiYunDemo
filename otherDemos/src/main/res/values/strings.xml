@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PaintDemo</string>
+    <string-array name="timetable_date_Array">
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+    </string-array>
+    <!--节次-->
+    <string-array name="timetable_turn">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+</resources>

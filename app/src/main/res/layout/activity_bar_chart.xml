@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".charts.ChartsActivity"
-    android:background="#EEEEEE"
-    android:orientation="vertical"
+    android:background="#FFFFFF"
     >
-
-    <com.chen.firstdemo.charts.BarChartView
-        android:id="@+id/barChartView"
-        android:layout_marginBottom="100dp"
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:background="#FFFFFF"
-        android:baselineAligned="false" />
+        android:layout_height="match_parent">
+        <com.chen.firstdemo.charts.BarChartView
+            android:id="@+id/barChartView"
+            android:layout_marginBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#FFFFFF"
+            android:baselineAligned="false" />
 
-    <RelativeLayout
-        android:clipChildren="false"
-        android:layout_width="400dp"
-        android:layout_height="400dp">
-        <com.chen.firstdemo.charts.CakeChartView
-            android:layout_centerInParent="true"
-            android:layout_width="200dp"
-            android:layout_height="200dp"/>
-    </RelativeLayout>
+        <com.cxd.cakechartview.CakeChartView
+            android:id="@+id/ccv"
+            android:background="#FFFFFF"
+            android:padding="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"/>
+        <Button
+            android:id="@+id/uiButton"
+            android:text="UI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+<!--        <RelativeLayout-->
+<!--            android:background="#FFFFFF"-->
+<!--            android:clipChildren="false"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <com.chen.firstdemo.charts.CakeChartView-->
+<!--                android:layout_margin="30dp"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="300dp"/>-->
+<!--        </RelativeLayout>-->
+
+    </LinearLayout>
+
+
+
+</ScrollView>

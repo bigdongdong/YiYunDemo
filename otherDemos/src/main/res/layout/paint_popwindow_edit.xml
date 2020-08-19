@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#55111111"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    >
+    <!--右上角的关闭弹窗按钮-->
+    <ImageView
+        android:id="@+id/closeIV"
+        android:padding="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/paint_to_right_close_pop" />
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+        <!--第一条-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:textColor="#111111"
+                android:text="课程名称:"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" />
+            <EditText
+                android:id="@+id/classNameET"
+                android:background="@null"
+                android:minWidth="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <!--第二条-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            >
+            <TextView
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:textSize="15dp"
+                android:textColor="#111111"
+                android:text="日期:"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" />
+            <Spinner
+                android:id="@+id/dateSpinner"
+                android:layout_centerVertical="true"
+                android:background="#ffffff"
+                android:spinnerMode="dropdown"
+                android:entries="@array/timetable_date_Array"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </Spinner>
+        </LinearLayout>
+        <!--第三条-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:id="@+id/timeCount"
+                android:gravity="center"
+                android:textColor="#111111"
+                android:text="节次:"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:id="@+id/turn_1_spinner"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/timetable_turn"
+                    android:layout_toRightOf="@+id/timeCount"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                </Spinner>
+                <TextView
+                    android:layout_weight="1"
+                    android:textColor="#111111"
+                    android:textSize="20dp"
+                    android:text="~"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <Spinner
+                    android:id="@+id/turn_2_spinner"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/timetable_turn"
+                    android:layout_toRightOf="@+id/timeCount"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </LinearLayout>
+        <!--第四条-->
+        <LinearLayout
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:textColor="#111111"
+                android:text="上课地点:"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" />
+            <EditText
+                android:id="@+id/classPlaceET"
+                android:background="@null"
+                android:minWidth="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <!--第五条 编辑-->
+        <LinearLayout
+            android:id="@+id/editLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <Button
+                android:id="@+id/cleanupButton"
+                android:text="移除该项"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/confirmEdit"
+                android:text="确认修改"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <!--第五条 添加-->
+        <LinearLayout
+            android:id="@+id/addLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <Button
+                android:id="@+id/addButton"
+                android:text="添加课程"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
