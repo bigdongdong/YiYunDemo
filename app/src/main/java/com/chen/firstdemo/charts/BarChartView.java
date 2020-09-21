@@ -10,6 +10,9 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+/**
+ * 柱状图
+ */
 public class BarChartView extends View {
     private Context context ;
     private int W , H ; //View's width & height

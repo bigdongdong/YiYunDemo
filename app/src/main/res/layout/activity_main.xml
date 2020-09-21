@@ -6,19 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".StartActivity">
 
-    <ScrollView
-        android:overScrollMode="never"
+    <com.cxd.springscrolllinearlayout.SpringScrollLinearLayout
+        android:id="@+id/linearLayout"
+        android:focusable="true"
         android:layout_marginTop="200px"
         android:layout_marginBottom="200px"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </ScrollView>
 
+
+    </com.cxd.springscrolllinearlayout.SpringScrollLinearLayout>
 
 </android.support.constraint.ConstraintLayout>

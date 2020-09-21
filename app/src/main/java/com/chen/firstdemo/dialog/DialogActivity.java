@@ -2,6 +2,7 @@ package com.chen.firstdemo.dialog;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.View;
@@ -27,6 +28,12 @@ public class DialogActivity extends BaseActivity {
         setContentView(R.layout.activity_dialog);
         ButterKnife.bind(this);
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                new MyDialog(context).show();
+            }
+        },3000);
 
     }
 

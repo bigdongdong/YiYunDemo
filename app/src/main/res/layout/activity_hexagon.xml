@@ -28,18 +28,12 @@
             />
 
         <com.chen.firstdemo.hexagon_view_demo.RhombusImageView
-            android:src="@mipmap/beauty"
+            android:src="@mipmap/beauty_3"
             app:rhombus_color="#F8C416"
             app:rhombus_corner="10dp"
             app:rhombus_width="3dp"
             android:scaleType="centerCrop"
             android:layout_centerInParent="true"
-            android:layout_width="250dp"
-            android:layout_height="250dp"/>
-        <com.chen.firstdemo.hexagon_view_demo.FangleView
-            android:src="@mipmap/beauty"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
             android:layout_width="250dp"
             android:layout_height="250dp"/>
     </LinearLayout>

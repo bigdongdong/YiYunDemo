@@ -7,44 +7,38 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.chen.firstdemo.banner_demo_github.Banner2Activity;
-import com.chen.firstdemo.bitmap_mix_demo.BitmapMixActivity;
+import com.chen.firstdemo.banner.Banner2Activity;
+import com.chen.firstdemo.bitmap_mix.BitmapMixActivity;
 import com.chen.firstdemo.bottom_tabs.bottom_tab_demo.BottomTabActivity;
 import com.chen.firstdemo.bottom_tabs.bottom_tab_demo_2.BottomTab2Activity;
 import com.chen.firstdemo.charts.ChartsActivity;
-import com.chen.firstdemo.chen_jin_pop_demo.ChenjinInputActivity;
-import com.chen.firstdemo.chen_jin_pop_demo.ChenjinPopActivity;
-import com.chen.firstdemo.clipview_demo.ClipViewDemoActivity;
+import com.chen.firstdemo.clipview.ClipViewDemoActivity;
 import com.chen.firstdemo.dialog.DialogActivity;
 import com.chen.firstdemo.diy_view_demo.DIYViewActivity;
-import com.chen.firstdemo.douyin_popwindow_demo.DouyinPopActivity;
 import com.chen.firstdemo.gauss_blur_demo.GaussBlurActivity;
+import com.chen.firstdemo.largeFace.LargeFaceActivity;
 import com.chen.firstdemo.new_beiyu.NewBeiyuActivity;
-import com.chen.firstdemo.recyclers.drag_recycler_demo.DragRecyclerDeniActivity;
+import com.chen.firstdemo.recyclers.drag_recycler.DragRecyclerDeniActivity;
 import com.chen.firstdemo.recyclers.empty_recyclerview.EmptyAdapterActivity;
 import com.chen.firstdemo.floating_window_demo.FloatingWindowActivity;
-import com.chen.firstdemo.glide_webp_demo.GlideWebpActivity;
 import com.chen.firstdemo.greendao_demo.GreendaoActivity;
 import com.chen.firstdemo.hexagon_view_demo.HexagonActivity;
-import com.chen.firstdemo.lazy_fragment.LazyLoadActivity;
 import com.chen.firstdemo.matrix_demo.MatrixActivity;
 import com.chen.firstdemo.multiple_img_view.MultipleImgViewActivity;
-import com.chen.firstdemo.my_wallet_demo.MyWalletActivity;
 import com.chen.firstdemo.notification_demo.NotificationActivity;
-import com.chen.firstdemo.recyclers.hover_recycler_demo.HoverRecyclerActivity;
+import com.chen.firstdemo.recyclers.hover_recycler.HoverRecyclerActivity;
+import com.chen.firstdemo.recyclers.kotlin.KotlinDemoActivity;
 import com.chen.firstdemo.recyclers.recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity;
-import com.chen.firstdemo.sticky_nest_scrollview_demo.StickyNestScrollViewActivity;
+import com.chen.firstdemo.scrolls.SpringScrollActivity;
 import com.chen.firstdemo.surfaceview_demo.SurfaceViewDemoActivity;
 import com.chen.firstdemo.suscat.OtherApplicationsActivity;
 import com.chen.firstdemo.viewpagers.viewpager_demo.PagerActivity;
 import com.chen.firstdemo.progress_imageview_demo.ProgressImageViewActivity;
-import com.chen.firstdemo.rank_imageview_demo.RankImageViewActivity;
-import com.chen.firstdemo.scrollview_toolbar.ScrollViewToolbarActivity;
 import com.chen.firstdemo.select_tab_demo.SelectTabActivity;
-import com.chen.firstdemo.shape_demo.ShapeActivity;
+import com.chen.firstdemo.shapes.ShapeActivity;
 import com.chen.firstdemo.utils.ScreenUtil;
-import com.chen.firstdemo.scroller_demo.ViewGroupActivity;
 import com.chen.firstdemo.viewpagers.viewpager_demo.wheel_anim_demo.ViewpagerAnimActivity;
+import com.chen.firstdemo.weelview.WheelDemoActivity;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -62,41 +56,34 @@ public class StartActivity extends AppCompatActivity {
                 BottomTabActivity.class,
                 FloatingWindowActivity.class,
                 GreendaoActivity.class,
-                RankImageViewActivity.class,
                 BottomTab2Activity.class,
                 SelectTabActivity.class,
                 ProgressImageViewActivity.class,
                 EmptyAdapterActivity.class,
                 ShapeActivity.class,
-                LazyLoadActivity.class,
-                ViewGroupActivity.class,
-                ChenjinInputActivity.class,
-                ChenjinPopActivity.class,
-                MyWalletActivity.class,
+                SpringScrollActivity.class,
                 MatrixActivity.class,
                 DragRecyclerDeniActivity.class,
-                ScrollViewToolbarActivity.class,
                 PagerActivity.class,
                 NotificationActivity.class,
-                ViewpagerAnimActivity.class,
                 RecyclerViewLayoutManagerActivity.class,
-                GlideWebpActivity.class,
                 ClipViewDemoActivity.class,
                 HexagonActivity.class,
-                DouyinPopActivity.class,
-                StickyNestScrollViewActivity.class,
                 HoverRecyclerActivity.class,
                 MultipleImgViewActivity.class,
                 GaussBlurActivity.class,
-                SurfaceViewDemoActivity.class,
                 OtherApplicationsActivity.class,
                 Banner2Activity.class,
                 NewBeiyuActivity.class,
                 DIYViewActivity.class,
                 DialogActivity.class,
+                KotlinDemoActivity.class,
                 ChartsActivity.class,
-
-
+                WheelDemoActivity.class,
+                ViewpagerAnimActivity.class,
+                LargeFaceActivity.class,
+                SurfaceViewDemoActivity.class,
+                SpringScrollActivity.class,
 
 
                 /*最后一个预留空位*/

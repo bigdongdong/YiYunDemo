@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".scrollview_toolbar.ScrollViewToolbarActivity"
+    tools:context=".scrolls.scrollview_toolbar.ScrollViewToolbarActivity"
     >
 
-    <com.chen.firstdemo.scrollview_toolbar.StickyScrollView
+    <com.chen.firstdemo.scrolls.scrollview_toolbar.StickyScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -63,13 +63,13 @@
             </RelativeLayout>
 
             <!--viewpager-->
-            <com.chen.firstdemo.scrollview_toolbar.MyViewPager
+            <com.chen.firstdemo.scrolls.scrollview_toolbar.MyViewPager
                 android:id="@+id/viewPager"
                 android:background="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>
-    </com.chen.firstdemo.scrollview_toolbar.StickyScrollView>
+    </com.chen.firstdemo.scrolls.scrollview_toolbar.StickyScrollView>
 
 
 

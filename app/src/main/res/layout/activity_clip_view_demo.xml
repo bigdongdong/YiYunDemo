@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".clipview_demo.ClipViewDemoActivity">
+    tools:context=".clipview.ClipViewDemoActivity">
 
     <com.cxd.clipview.ClipImageView
         android:id="@+id/civ"

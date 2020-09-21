@@ -41,7 +41,7 @@ public class ChartsActivity extends BaseActivity {
             yVals[i] = String.valueOf(i * 5);
         }
 
-        final int xs = 31;
+        final int xs = 10;
         String[] xVals = new String[xs];
         String[] barVals = new String[xs];
         float[] ratios = new float[xs];
@@ -94,7 +94,7 @@ public class ChartsActivity extends BaseActivity {
             }
         });
 
-        final int margin = DensityUtil.dip2px(context, 20);
+        final int margin = DensityUtil.dip2px(context, 0);
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) ccv.getLayoutParams();
         lp.width = ScreenUtil.getScreenWidth(context) - margin * 2;
         lp.height = ScreenUtil.getScreenWidth(context) - margin * 2;

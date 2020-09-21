@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.chen.firstdemo.sticky_nest_scrollview_demo.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.chen.firstdemo.scrolls.sticky_nest_scrollview.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sticky_nest_scrollview_demo.StickyNestScrollViewActivity"
+    tools:context=".scrolls.sticky_nest_scrollview.StickyNestScrollViewActivity"
     app:header="@+id/headerView"
     >
 
@@ -111,4 +111,4 @@
             android:layout_height="500px"/>
     </LinearLayout>
 
-</com.chen.firstdemo.sticky_nest_scrollview_demo.StickyScrollView>
+</com.chen.firstdemo.scrolls.sticky_nest_scrollview.StickyScrollView>

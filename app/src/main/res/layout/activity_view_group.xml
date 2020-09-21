@@ -1,37 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tools:context=".scroller_demo.ViewGroupActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
     >
 
-    <com.chen.firstdemo.scroller_demo.DiyViewGroup
-        android:visibility="gone"
-        android:layout_margin="100px"
-        android:layout_width="match_parent"
+    <com.cxd.springscrolllinearlayout.SpringScrollLinearLayout
+        android:id="@+id/fv"
+        android:background="#CCCCCC"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="match_parent">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="300px">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+                <View
+                    android:layout_marginLeft="20px"
+                    android:background="#f9ed69"
+                    android:layout_width="300px"
+                    android:layout_height="300px"/>
+            </LinearLayout>
+        </HorizontalScrollView>
 
-        <View
-            android:background="#ff1111"
-            android:layout_width="20dp"
-            android:layout_height="20dp"/>
-        <View
-            android:background="@color/colorPrimary"
-            android:layout_width="20dp"
-            android:layout_height="20dp"/>
-        <View
-            android:background="#111111"
-            android:layout_width="20dp"
-            android:layout_height="20dp"/>
-
-    </com.chen.firstdemo.scroller_demo.DiyViewGroup>
-
-    <com.chen.firstdemo.scroller_demo.FlingView
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </com.chen.firstdemo.scroller_demo.FlingView>
-</RelativeLayout>
+    </com.cxd.springscrolllinearlayout.SpringScrollLinearLayout>
+</LinearLayout>

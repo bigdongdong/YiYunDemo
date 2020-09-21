@@ -56,7 +56,7 @@
         </RelativeLayout>
 
         <!--viewpager-->
-        <com.chen.firstdemo.scrollview_toolbar.MyViewPager
+        <com.chen.firstdemo.scrolls.scrollview_toolbar.MyViewPager
             android:id="@+id/viewPager"
             android:background="#FFFFFF"
             android:layout_width="match_parent"
