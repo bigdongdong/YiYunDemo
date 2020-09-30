@@ -16,11 +16,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".dialog.douyindialog.douyin.DouYinDialogActivity"></activity>
+        <activity android:name=".taskstackbuilder.TaskStackBuilder3Activity" />
+        <activity android:name=".taskstackbuilder.TaskStackBuilder2Activity" />
+        <activity android:name=".taskstackbuilder.TaskStackBuilder1Activity" />
         <activity android:name=".largeFace.LargeFaceActivity" />
         <activity android:name=".weelview.WheelDemoActivity" />
         <activity android:name=".recyclers.kotlin.KotlinDemoActivity" />
         <activity android:name=".notification_demo.Notification2Activity" />
-        <activity android:name=".dialog.DialogActivity" />
         <activity android:name=".charts.ChartsActivity" />
         <activity android:name=".new_beiyu.NewBeiyuActivity" />
         <activity android:name=".surfaceview_demo.SurfaceViewDemoActivity" />

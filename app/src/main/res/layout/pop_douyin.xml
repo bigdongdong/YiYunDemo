@@ -5,5 +5,9 @@
     android:layout_gravity="bottom"
     android:background="#FFFFFF"
     >
+    <View
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
 
 </LinearLayout>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.cxd.springscrolllinearlayout.SpringScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:layout_marginTop="200px"
+    android:layout_marginBottom="200px"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
-
-    <com.cxd.springscrolllinearlayout.SpringScrollLinearLayout
+    tools:context=".StartActivity"
+    >
+    <LinearLayout
         android:id="@+id/linearLayout"
-        android:focusable="true"
-        android:layout_marginTop="200px"
-        android:layout_marginBottom="200px"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    </com.cxd.springscrolllinearlayout.SpringScrollLinearLayout>
-
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="wrap_content">
+    </LinearLayout>
+</com.cxd.springscrolllinearlayout.SpringScrollView>

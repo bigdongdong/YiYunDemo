@@ -74,7 +74,7 @@ public abstract class BaseDialog extends Dialog {
     /**
      * 配置清单
      */
-    protected class Config {
+    public class Config {
         public boolean retainShadow = true ; //是否保留阴影，默认保留
         public int width = -2 ;
         public int height = -2 ;

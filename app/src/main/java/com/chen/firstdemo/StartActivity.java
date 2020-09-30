@@ -13,7 +13,7 @@ import com.chen.firstdemo.bottom_tabs.bottom_tab_demo.BottomTabActivity;
 import com.chen.firstdemo.bottom_tabs.bottom_tab_demo_2.BottomTab2Activity;
 import com.chen.firstdemo.charts.ChartsActivity;
 import com.chen.firstdemo.clipview.ClipViewDemoActivity;
-import com.chen.firstdemo.dialog.DialogActivity;
+import com.chen.firstdemo.dialog.douyindialog.douyin.DouYinDialogActivity;
 import com.chen.firstdemo.diy_view_demo.DIYViewActivity;
 import com.chen.firstdemo.gauss_blur_demo.GaussBlurActivity;
 import com.chen.firstdemo.largeFace.LargeFaceActivity;
@@ -32,6 +32,7 @@ import com.chen.firstdemo.recyclers.recyclerview_layoutmanager_demo.RecyclerView
 import com.chen.firstdemo.scrolls.SpringScrollActivity;
 import com.chen.firstdemo.surfaceview_demo.SurfaceViewDemoActivity;
 import com.chen.firstdemo.suscat.OtherApplicationsActivity;
+import com.chen.firstdemo.taskstackbuilder.TaskStackBuilder1Activity;
 import com.chen.firstdemo.viewpagers.viewpager_demo.PagerActivity;
 import com.chen.firstdemo.progress_imageview_demo.ProgressImageViewActivity;
 import com.chen.firstdemo.select_tab_demo.SelectTabActivity;
@@ -76,14 +77,15 @@ public class StartActivity extends AppCompatActivity {
                 Banner2Activity.class,
                 NewBeiyuActivity.class,
                 DIYViewActivity.class,
-                DialogActivity.class,
                 KotlinDemoActivity.class,
                 ChartsActivity.class,
                 WheelDemoActivity.class,
                 ViewpagerAnimActivity.class,
                 LargeFaceActivity.class,
                 SurfaceViewDemoActivity.class,
+                TaskStackBuilder1Activity.class,
                 SpringScrollActivity.class,
+                DouYinDialogActivity.class,
 
 
                 /*最后一个预留空位*/

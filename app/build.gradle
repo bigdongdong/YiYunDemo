@@ -91,8 +91,8 @@ dependencies {
     implementation 'com.github.bigdongdong:RegularPolygonView:1.0'
     implementation 'com.github.bigdongdong:ChatView:2.0'
     implementation 'com.github.bigdongdong:CakeChartView:1.0'
-    implementation 'com.github.bigdongdong:SpringScrollLinearLayout:3.0'
     implementation 'com.github.bigdongdong:HoverItemDecoration:1.0'
+    implementation 'com.github.bigdongdong:SpringScrollView:1.5'
 
     /*吸顶RecyclerView的装饰者*/
 //    implementation 'com.demon.yu:top-decoration:1.0.0'
