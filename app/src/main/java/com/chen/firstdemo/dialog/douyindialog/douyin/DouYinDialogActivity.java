@@ -2,11 +2,13 @@ package com.chen.firstdemo.dialog.douyindialog.douyin;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +16,12 @@ import android.widget.Button;
 import com.chen.firstdemo.R;
 import com.chen.firstdemo.base.BaseActivity;
 import com.chen.firstdemo.dialog.BaseDialog;
-import com.chen.firstdemo.dialog.LikeDouYinDialog;
 import com.chen.firstdemo.recyclers.empty_recyclerview.adapters.QuickAdapter;
 import com.chen.firstdemo.utils.DensityUtil;
+import com.chen.firstdemo.utils.GradientDrawableBuilder;
 import com.chen.firstdemo.utils.ScreenUtil;
+import com.cxd.likedouyinframelayout.LikeDouYinDialog;
+import com.cxd.likedouyinframelayout.LikeDouYinFrameLayout;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -72,7 +76,7 @@ public class DouYinDialogActivity extends BaseActivity {
         }
 
         @Override
-        protected Object getLayoutOrView() {
+        protected Object getLayoutIdOrView() {
             return R.layout.dialog_dou_yin;
         }
     }
@@ -92,32 +96,46 @@ public class DouYinDialogActivity extends BaseActivity {
 
         @Override
         protected void onCreateView(View view) {
+            final int c15 = DensityUtil.dip2px(context,15);
+            new GradientDrawableBuilder()
+                    .color(0xFFCCCCCC)
+                    .conners(new float[]{c15,c15,c15,c15,0,0,0,0})
+                    .into(view);
+
             ((LikeDouYinFrameLayout)view).setOnCloseListener(new LikeDouYinFrameLayout.OnCloseListener() {
                 @Override
                 public void onClose() {
                     dismiss();
                 }
             });
-            RecyclerView recycler = (RecyclerView) ((LikeDouYinFrameLayout) view).getChildAt(0);
-            recycler.setLayoutManager(new LinearLayoutManager(context,RecyclerView.VERTICAL,false));
-            QuickAdapter adapter = new QuickAdapter(context) {
-                @Override
-                protected Object getEmptyIdOrView() {
-                    return null;
-                }
+            if(((LikeDouYinFrameLayout) view).getChildAt(0) instanceof RecyclerView){
+                RecyclerView recycler = (RecyclerView) ((LikeDouYinFrameLayout) view).getChildAt(0);
+                recycler.setLayoutManager(new LinearLayoutManager(context,RecyclerView.VERTICAL,false));
+                QuickAdapter adapter = new QuickAdapter(context) {
+                    @Override
+                    protected Object getEmptyIdOrView() {
+                        return null;
+                    }
 
-                @Override
-                protected Object getItemViewOrId() {
-                    return R.layout.item_bucket;
-                }
+                    @Override
+                    protected Object getItemViewOrId() {
+                        return R.layout.item_bucket;
+                    }
 
-                @Override
-                protected void onBindViewHolder(@NotNull QuickAdapter.ViewHolder holder, Object o, int position) {
-
-                }
-            };
-            recycler.setAdapter(adapter);
-            adapter.doTest(30);
+                    @Override
+                    protected void onBindViewHolder(@NotNull QuickAdapter.ViewHolder holder, Object o, int position) {
+                        holder.getItemView().setBackgroundColor(Color.WHITE);
+                        holder.getItemView().setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Log.i("aaa", "onClick: ");
+                            }
+                        });
+                    }
+                };
+                recycler.setAdapter(adapter);
+                adapter.doTest(30);
+            }
         }
 
         @Override

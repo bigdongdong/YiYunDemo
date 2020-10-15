@@ -93,14 +93,19 @@ public class ScrollContainerView extends FrameLayout {
                 mEventDownY = ev.getY();
                 mLastEventMoveY = mEventDownY ;
 
-                if(isTriggeringTopHoverEvent() || isTriggeringBottomHoverEvent()){
-                    springBackToTopIfNecessary();
-                    springBackToBottomIfNecessary();
-                }
+//                if(isTriggeringTopHoverEvent() || isTriggeringBottomHoverEvent()){
+//                    springBackToTopIfNecessary();
+//                    springBackToBottomIfNecessary();
+//                }
                 return false ;
             case MotionEvent.ACTION_MOVE:
                 final float mCurEventMoveY = ev.getY();
                 int dy = (int) (mCurEventMoveY - mLastEventMoveY);
+                if(dy < 0 && isTriggeringTopHoverEvent()){
+                    springBackToTopIfNecessary();
+                }else if(dy > 0 && isTriggeringBottomHoverEvent()){
+                    springBackToBottomIfNecessary();
+                }
                 mLastEventMoveY = mCurEventMoveY;
                 return (dy > 0 && isContentViewReachTheTop()) || (dy < 0 && isContentViewReachTheBottom()) ;
             case MotionEvent.ACTION_UP:
@@ -158,8 +163,8 @@ public class ScrollContainerView extends FrameLayout {
 
     /*是否正在触发底部悬停事件*/
     private boolean isTriggeringBottomHoverEvent(){
-//        return mFooterView.getHeight() == DEFAULT_HEADER_AND_FOOTER_HEIGHT_PX ;
-        return false;
+        return mFooterView.getHeight() == DEFAULT_HEADER_AND_FOOTER_HEIGHT_PX ;
+//        return false;
     }
 
     /*判断contentView是否到达了顶端*/
@@ -170,6 +175,11 @@ public class ScrollContainerView extends FrameLayout {
         }
         return true;
     }
+
+//    private boolean isContentViewReachTheTop() {
+//        View contentView = this.getChildAt(0);
+//        return contentView != null && !contentView.canScrollVertically(-1);
+//    }
 
     /*判断contentView是否到达了底部*/
     private boolean isContentViewReachTheBottom(){

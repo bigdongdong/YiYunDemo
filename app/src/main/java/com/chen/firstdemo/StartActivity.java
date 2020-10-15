@@ -3,6 +3,7 @@ package com.chen.firstdemo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -44,7 +45,7 @@ import com.chen.firstdemo.weelview.WheelDemoActivity;
 public class StartActivity extends AppCompatActivity {
 
     private LinearLayout linearLayout ;
-    private Class[] classes ;
+    private ClassBean[] classes ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,39 +54,38 @@ public class StartActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.linearLayout);
         linearLayout.setMinimumHeight(ScreenUtil.getScreenHeight(this));
 
-        classes = new Class[]{BitmapMixActivity.class,
-                BottomTabActivity.class,
-                FloatingWindowActivity.class,
-                GreendaoActivity.class,
-                BottomTab2Activity.class,
-                SelectTabActivity.class,
-                ProgressImageViewActivity.class,
-                EmptyAdapterActivity.class,
-                ShapeActivity.class,
-                SpringScrollActivity.class,
-                MatrixActivity.class,
-                DragRecyclerDeniActivity.class,
-                PagerActivity.class,
-                NotificationActivity.class,
-                RecyclerViewLayoutManagerActivity.class,
-                ClipViewDemoActivity.class,
-                HexagonActivity.class,
-                HoverRecyclerActivity.class,
-                MultipleImgViewActivity.class,
-                GaussBlurActivity.class,
-                OtherApplicationsActivity.class,
-                Banner2Activity.class,
-                NewBeiyuActivity.class,
-                DIYViewActivity.class,
-                KotlinDemoActivity.class,
-                ChartsActivity.class,
-                WheelDemoActivity.class,
-                ViewpagerAnimActivity.class,
-                LargeFaceActivity.class,
-                SurfaceViewDemoActivity.class,
-                TaskStackBuilder1Activity.class,
-                SpringScrollActivity.class,
-                DouYinDialogActivity.class,
+        classes = new ClassBean[]{
+                new ClassBean(BitmapMixActivity.class,"bitmap混合实例列表"),
+                new ClassBean(FloatingWindowActivity.class,"悬浮窗"),
+                new ClassBean(GreendaoActivity.class,"greendao数据库"),
+                new ClassBean(BottomTab2Activity.class,"自定义底部导航栏"),
+                new ClassBean(SelectTabActivity.class,"自定义圆角Tab"),
+                new ClassBean(ProgressImageViewActivity.class,"使用OkHttp实现的带进度的图片加载"),
+                new ClassBean(EmptyAdapterActivity.class,"RecyclerView 空布局Adapter"),
+                new ClassBean(ShapeActivity.class,"自定义Shape"),
+                new ClassBean(MatrixActivity.class,"Matrix矩阵"),
+                new ClassBean(DragRecyclerDeniActivity.class,"Drag拖动item的列表"),
+                new ClassBean(PagerActivity.class,"viewpager变形初探"),
+                new ClassBean(NotificationActivity.class,"Notification研究"),
+                new ClassBean(RecyclerViewLayoutManagerActivity.class,"RecyclerView LayoutManager研究"),
+                new ClassBean(ClipViewDemoActivity.class,"ClipView和Photor框架接入"),
+                new ClassBean(HexagonActivity.class,"尖尖朝上的正多边形ImageView"),
+                new ClassBean(HoverRecyclerActivity.class,"分组悬停RecyclerView的item装饰类"),
+                new ClassBean(MultipleImgViewActivity.class,"钉钉和微信群组头像view"),
+                new ClassBean(GaussBlurActivity.class,"高斯模糊"),
+                new ClassBean(OtherApplicationsActivity.class,"上体掌中宝中的三个小应用"),
+                new ClassBean(Banner2Activity.class,"Banner框架接入"),
+                new ClassBean(NewBeiyuActivity.class,"为贝语实现的进度条"),
+                new ClassBean(DIYViewActivity.class,"一些自定义View"),
+                new ClassBean(KotlinDemoActivity.class,"用Kotlin实现的activity"),
+                new ClassBean(ChartsActivity.class,"图标控件Charts"),
+                new ClassBean(WheelDemoActivity.class,"选择器轮子控件Wheel"),
+                new ClassBean(ViewpagerAnimActivity.class,"基于ViewPager实现的开宝箱动画"),
+                new ClassBean(LargeFaceActivity.class,"自定义大脸View，根据进度改变颜色"),
+                new ClassBean(SurfaceViewDemoActivity.class,"SurfaceView研究"),
+                new ClassBean(TaskStackBuilder1Activity.class,"TaskStackBuilder研究"),
+                new ClassBean(DouYinDialogActivity.class,"类似抖音评论弹窗框架LikeDouYin...接入"),
+                new ClassBean(SpringScrollActivity.class,"自带阻尼的SpringScrollview接入"),
 
 
                 /*最后一个预留空位*/
@@ -93,26 +93,29 @@ public class StartActivity extends AppCompatActivity {
         } ;
 
         for(int i = classes.length-2 ; i >= 0 ; i--){
-            generateView(classes[i].getSimpleName(),classes[i]);
-        }
+            View v = generateView(classes[i].c,classes[i].cStr);
 
-        //直接点击最后一个
-        Intent intent = new Intent(this,classes[classes.length-2]);
-        startActivity(intent);
+            //直接点击第一个
+            if(i == classes.length-2){
+                v.callOnClick();
+            }
+        }
     }
 
     /**
      * 根据类名 逐一生成button
-     * @param s
      * @param c
+     * @param s
      */
-    private void generateView(String s,final Class c){
+    private View generateView(final Class c,String s){
         Button button = new Button(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                200);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1,-2);
         params.setMargins(100,0,100,0);
         button.setLayoutParams(params);
-        button.setText(s+".class");
+        button.setMinHeight(200);
+        button.setPadding(100,50,100,50);
+        button.setGravity(Gravity.CENTER);
+        button.setText(c.getSimpleName()+".class\n"+s);
         button.setAllCaps(false);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +125,17 @@ public class StartActivity extends AppCompatActivity {
             }
         });
         linearLayout.addView(button);
+        return button ;
     }
 
+
+    private class ClassBean {
+        private Class c ;
+        private String cStr ;
+
+        public ClassBean(Class c, String cStr) {
+            this.c = c;
+            this.cStr = cStr;
+        }
+    }
 }

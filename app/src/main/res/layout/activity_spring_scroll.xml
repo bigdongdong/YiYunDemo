@@ -101,7 +101,6 @@
         </LinearLayout>
     </com.cxd.springscrolllinearlayout.SpringScrollView>
 
-
     <!--滚动容器-->
     <com.chen.firstdemo.scrolls.scroll_container.ScrollContainerLayout
         android:layout_marginTop="300px"
