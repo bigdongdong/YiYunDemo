@@ -93,7 +93,7 @@ dependencies {
     implementation 'com.github.bigdongdong:CakeChartView:1.0'
     implementation 'com.github.bigdongdong:HoverItemDecoration:1.0'
     implementation 'com.github.bigdongdong:SpringScrollView:1.8'
-    implementation 'com.github.bigdongdong:LikeDouYinFrameLayout:1.5'
+    implementation 'com.github.bigdongdong:LikeDouYinFrameLayout:2.1'
 
     /*吸顶RecyclerView的装饰者*/
 //    implementation 'com.demon.yu:top-decoration:1.0.0'

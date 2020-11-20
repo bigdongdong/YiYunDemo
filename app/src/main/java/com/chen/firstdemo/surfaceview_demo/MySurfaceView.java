@@ -84,9 +84,9 @@ public class MySurfaceView extends BaseSurfaceView {
 //            y=(int)(100*Math.cos(x*2*Math.PI/180)+200);
 //            path.lineTo(x,y);
 //        }
-        if(!as.isStarted()){
-            as.start();
-        }
+//        if(!as.isStarted()){
+//            as.start();
+//        }
 
         c.drawBitmap(bitmap,matrix,null);
     }

@@ -8,19 +8,21 @@
     android:orientation="horizontal"
     android:background="#CCCCCC"
     android:paddingTop="15dp">
-    <android.support.v7.widget.RecyclerView
-        android:translationY="50dp"
-        android:overScrollMode="never"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
     <TextView
         android:textColor="#FFFFFF"
         android:background="#CCCCCC"
-        android:gravity="center"
+        android:gravity="center|top"
         android:textSize="18sp"
         android:text="这里是固定的部分"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="40dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_marginTop="40dp"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </com.cxd.likedouyinframelayout.LikeDouYinFrameLayout>
 
 

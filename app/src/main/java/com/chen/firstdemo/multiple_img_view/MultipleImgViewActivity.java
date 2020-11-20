@@ -72,9 +72,9 @@ public class MultipleImgViewActivity extends BaseActivity {
         heads.add("https://image.soudlink.net/pic/e88136b39029d61e440e3e268b7207e6.png");
         heads.add("https://image.soudlink.net/pic/A86E5C602181BA0D551BA4AABB3EEF04.png");
         heads.add("https://image.soudlink.net/pic/6A5F93297790EB8185358158AD1DB40A.png");
-        heads.add("http://thirdwx.qlogo.cn/mmopen/vi_32/TXneJicINLuPH0sl23QPhq3p7cmrUUHkSKxsLlbicD9A2Px2TIVN2ic07kONlVhBicsTgCpLCJ7RXmH93ibUjibQAXcg/132");
+        heads.add("https://image.soudlink.net/pic/6A5F93297790EB8185358158AD1DB40A.png");
         heads.add("https://image.soudlink.net/pic/a597142856c8f18bb50e39d5b2d01d3d.png");
-        heads.add("http://thirdqq.qlogo.cn/qqapp/101418471/A042BB9EB0BD96F07AED0DA05D0ADC34/100");
+        heads.add("https://image.soudlink.net/pic/a597142856c8f18bb50e39d5b2d01d3d.png");
         heads.add("https://image.soudlink.net/pic/47819B2D0E31C2EAE6DE51C013130E8A.png");
         heads.add("https://image.soudlink.net/pic/B639A3C047DD8984D1260983751C6EB2.png");
 

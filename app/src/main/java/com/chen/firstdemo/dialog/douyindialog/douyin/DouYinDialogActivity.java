@@ -30,8 +30,8 @@ import butterknife.ButterKnife;
 
 public class DouYinDialogActivity extends BaseActivity {
 
-    @BindView(R.id.button)
-    Button button;
+//    @BindView(R.id.button)
+//    Button button;
     @BindView(R.id.buttonDiy)
     Button buttonDiy;
 
@@ -41,12 +41,12 @@ public class DouYinDialogActivity extends BaseActivity {
         setContentView(R.layout.activity_dou_yin_dialog);
         ButterKnife.bind(this);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new MyDialog(DouYinDialogActivity.this).show();
-            }
-        });
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                new MyDialog(DouYinDialogActivity.this).show();
+//            }
+//        });
         buttonDiy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,28 +58,28 @@ public class DouYinDialogActivity extends BaseActivity {
 
 
     @SuppressLint("ValidFragment")
-    public static class MyDialog extends LikeDouYinDialog {
-        public MyDialog(@NonNull AppCompatActivity context) {
-            super(context);
-        }
-
-        @Override
-        protected void onConfig(Config c) {
-            c.gravity = Gravity.BOTTOM;
-            c.width = -1;
-            c.height = (int) (ScreenUtil.getScreenHeight(context) * 0.75f);
-            c.retainShadow = true;
-        }
-
-        @Override
-        protected void onCreateView(View view) {
-        }
-
-        @Override
-        protected Object getLayoutIdOrView() {
-            return R.layout.dialog_dou_yin;
-        }
-    }
+//    public static class MyDialog extends LikeDouYinDialog {
+//        public MyDialog(@NonNull AppCompatActivity context) {
+//            super(context);
+//        }
+//
+//        @Override
+//        protected void onConfig(Config c) {
+//            c.gravity = Gravity.BOTTOM;
+//            c.width = -1;
+//            c.height = (int) (ScreenUtil.getScreenHeight(context) * 0.75f);
+//            c.retainShadow = true;
+//        }
+//
+//        @Override
+//        protected void onCreateView(View view) {
+//        }
+//
+//        @Override
+//        protected Object getLayoutIdOrView() {
+//            return R.layout.dialog_dou_yin;
+//        }
+//    }
 
     public static class MyDiyDialog extends BaseDialog{
 
@@ -92,6 +92,7 @@ public class DouYinDialogActivity extends BaseActivity {
             c.gravity = Gravity.BOTTOM ;
             c.width = -1;
             c.height = DensityUtil.dip2px(context,600);
+            c.style = R.style.pop_bottom_animation ;
         }
 
         @Override
@@ -108,34 +109,33 @@ public class DouYinDialogActivity extends BaseActivity {
                     dismiss();
                 }
             });
-            if(((LikeDouYinFrameLayout) view).getChildAt(0) instanceof RecyclerView){
-                RecyclerView recycler = (RecyclerView) ((LikeDouYinFrameLayout) view).getChildAt(0);
-                recycler.setLayoutManager(new LinearLayoutManager(context,RecyclerView.VERTICAL,false));
-                QuickAdapter adapter = new QuickAdapter(context) {
-                    @Override
-                    protected Object getEmptyIdOrView() {
-                        return null;
-                    }
 
-                    @Override
-                    protected Object getItemViewOrId() {
-                        return R.layout.item_bucket;
-                    }
+            RecyclerView recycler = view.findViewById(R.id.recycler);
+            recycler.setLayoutManager(new LinearLayoutManager(context,RecyclerView.VERTICAL,false));
+            QuickAdapter adapter = new QuickAdapter(context) {
+                @Override
+                protected Object getEmptyIdOrView() {
+                    return null;
+                }
 
-                    @Override
-                    protected void onBindViewHolder(@NotNull QuickAdapter.ViewHolder holder, Object o, int position) {
-                        holder.getItemView().setBackgroundColor(Color.WHITE);
-                        holder.getItemView().setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Log.i("aaa", "onClick: ");
-                            }
-                        });
-                    }
-                };
-                recycler.setAdapter(adapter);
-                adapter.doTest(30);
-            }
+                @Override
+                protected Object getItemViewOrId() {
+                    return R.layout.item_bucket;
+                }
+
+                @Override
+                protected void onBindViewHolder(@NotNull QuickAdapter.ViewHolder holder, Object o, int position) {
+                    holder.getItemView().setBackgroundColor(Color.WHITE);
+                    holder.getItemView().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Log.i("aaa", "onClick: ");
+                        }
+                    });
+                }
+            };
+            recycler.setAdapter(adapter);
+            adapter.doTest(30);
         }
 
         @Override

@@ -16,8 +16,12 @@ import com.chen.firstdemo.charts.ChartsActivity;
 import com.chen.firstdemo.clipview.ClipViewDemoActivity;
 import com.chen.firstdemo.dialog.douyindialog.douyin.DouYinDialogActivity;
 import com.chen.firstdemo.diy_view_demo.DIYViewActivity;
+import com.chen.firstdemo.flight_chess.FlightChessActivity;
 import com.chen.firstdemo.gauss_blur_demo.GaussBlurActivity;
+import com.chen.firstdemo.giftanim.SendGiftAnimActivity;
+import com.chen.firstdemo.handler.HandlerActivity;
 import com.chen.firstdemo.largeFace.LargeFaceActivity;
+import com.chen.firstdemo.matryoshka.MatryoshkaActivity;
 import com.chen.firstdemo.new_beiyu.NewBeiyuActivity;
 import com.chen.firstdemo.recyclers.drag_recycler.DragRecyclerDeniActivity;
 import com.chen.firstdemo.recyclers.empty_recyclerview.EmptyAdapterActivity;
@@ -71,7 +75,6 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(ClipViewDemoActivity.class,"ClipView和Photor框架接入"),
                 new ClassBean(HexagonActivity.class,"尖尖朝上的正多边形ImageView"),
                 new ClassBean(HoverRecyclerActivity.class,"分组悬停RecyclerView的item装饰类"),
-                new ClassBean(MultipleImgViewActivity.class,"钉钉和微信群组头像view"),
                 new ClassBean(GaussBlurActivity.class,"高斯模糊"),
                 new ClassBean(OtherApplicationsActivity.class,"上体掌中宝中的三个小应用"),
                 new ClassBean(Banner2Activity.class,"Banner框架接入"),
@@ -84,8 +87,13 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(LargeFaceActivity.class,"自定义大脸View，根据进度改变颜色"),
                 new ClassBean(SurfaceViewDemoActivity.class,"SurfaceView研究"),
                 new ClassBean(TaskStackBuilder1Activity.class,"TaskStackBuilder研究"),
-                new ClassBean(DouYinDialogActivity.class,"类似抖音评论弹窗框架LikeDouYin...接入"),
+                new ClassBean(MultipleImgViewActivity.class,"钉钉和微信群组头像view"),
+                new ClassBean(SendGiftAnimActivity.class,"房间送礼动画"),
                 new ClassBean(SpringScrollActivity.class,"自带阻尼的SpringScrollview接入"),
+                new ClassBean(MatryoshkaActivity.class,"套娃view"),
+                new ClassBean(HandlerActivity.class,"解析Handler"),
+                new ClassBean(DouYinDialogActivity.class,"类似抖音评论弹窗框架LikeDouYin...接入"),
+                new ClassBean(FlightChessActivity.class,"英国十字棋棋盘"),
 
 
                 /*最后一个预留空位*/

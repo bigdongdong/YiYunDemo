@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".flight_chess.FlightChessActivity"
+    android:background="#6a2c70"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:background="#33FFFFFF"
+        android:layout_width="300dp"
+        android:layout_height="300dp">
+        <com.chen.firstdemo.flight_chess.FlightChessView
+            android:id="@+id/fcv"
+            android:background="@mipmap/bg_chess_board"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:text="棋子1飞"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

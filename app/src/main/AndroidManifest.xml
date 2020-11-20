@@ -9,14 +9,20 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".Chen"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".dialog.douyindialog.douyin.DouYinDialogActivity"></activity>
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".flight_chess.FlightChessActivity"/>
+        <activity android:name=".handler.HandlerActivity" />
+        <activity android:name=".matryoshka.MatryoshkaActivity" />
+        <activity android:name=".giftanim.SendGiftAnimActivity" />
+        <activity android:name=".dialog.douyindialog.douyin.DouYinDialogActivity" />
         <activity android:name=".taskstackbuilder.TaskStackBuilder3Activity" />
         <activity android:name=".taskstackbuilder.TaskStackBuilder2Activity" />
         <activity android:name=".taskstackbuilder.TaskStackBuilder1Activity" />

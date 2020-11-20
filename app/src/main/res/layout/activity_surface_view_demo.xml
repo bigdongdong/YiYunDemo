@@ -8,39 +8,14 @@
     android:background="#FFFFFF"
     tools:context=".surfaceview_demo.SurfaceViewDemoActivity">
 
-<!--    <LinearLayout-->
-<!--        android:gravity="center_horizontal"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-<!--        <com.chen.firstdemo.surfaceview_demo.MySurfaceView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="200dp"/>-->
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.chen.firstdemo.surfaceview_demo.MySurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
 
-<!--    </LinearLayout>-->
-
-    <RelativeLayout
-        android:id="@+id/viewsRL"
-        android:clipChildren="false"
-        android:layout_marginTop="500dp"
-        android:layout_centerHorizontal="true"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-<!--    <View-->
-<!--        android:background="#FFFFFF"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"/>-->
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/viewsRL"
-        android:text="阶段1 + 阶段2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-
+    </LinearLayout>
 </RelativeLayout>
