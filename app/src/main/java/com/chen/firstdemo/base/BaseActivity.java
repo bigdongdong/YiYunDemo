@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -20,4 +21,7 @@ public class BaseActivity extends AppCompatActivity {
         context = this ;
     }
 
+    protected void toast(String str){
+        Toast.makeText(context,str,Toast.LENGTH_SHORT).show();
+    }
 }

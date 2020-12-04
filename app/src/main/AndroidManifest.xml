@@ -16,9 +16,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
-        <activity android:name=".flight_chess.FlightChessActivity"/>
+        android:theme="@style/AppTheme">
+        <activity android:name=".e_number.ENumberActivity"></activity>
+        <activity android:name=".flight_chess.FlightChessActivity" />
         <activity android:name=".handler.HandlerActivity" />
         <activity android:name=".matryoshka.MatryoshkaActivity" />
         <activity android:name=".giftanim.SendGiftAnimActivity" />

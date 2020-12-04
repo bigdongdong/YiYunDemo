@@ -1,33 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.cxd.springscrolllinearlayout.SpringScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".flight_chess.FlightChessActivity"
-    android:background="#6a2c70"
-    android:gravity="center"
-    android:orientation="vertical"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:paddingTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#6a2c70"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
 
-    <RelativeLayout
-        android:id="@+id/rl"
-        android:background="#33FFFFFF"
-        android:layout_width="300dp"
-        android:layout_height="300dp">
-        <com.chen.firstdemo.flight_chess.FlightChessView
-            android:id="@+id/fcv"
-            android:background="@mipmap/bg_chess_board"
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:background="#33FFFFFF"
+            android:layout_width="400dp"
+            android:layout_height="400dp">
+            <com.chen.firstdemo.flight_chess.ludo.LudoView
+                android:id="@+id/lv"
+                android:background="@mipmap/bg_chess_board"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+
+        <GridLayout
+            android:columnCount="3"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/resetButn"
+                android:text="reset"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/qifeiBtn1"
+                android:text="1-1起飞"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/preheatBtn1All"
+                android:text="1-x预热"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/preheatBtn1"
+                android:text="1-1预热"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/qifeiBtn2"
+                android:text="1-2起飞并与1-1fold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/flyFrom55To16Btn"
+                android:text="1-1从55-16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/setTo66Btn"
+                android:text="1-1设置到66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/flyFrom66ToWinBtn"
+                android:text="1-1从66-终点"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/crashBtn"
+                android:text="1-x坠机"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/foldAllBtn"
+                android:text="所有飞机fold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </GridLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content">
+            <com.chen.firstdemo.flight_chess.ludo.CircleCountDownView
+                android:id="@+id/ccdv"
+                android:layout_width="200dp"
+                android:layout_height="200dp"/>
+            <Button
+                android:id="@+id/countDownBtn"
+                android:text="开启倒计时5s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-    </RelativeLayout>
 
-    <Button
-        android:id="@+id/button1"
-        android:text="棋子1飞"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-</LinearLayout>
+    </LinearLayout>
+</com.cxd.springscrolllinearlayout.SpringScrollView>

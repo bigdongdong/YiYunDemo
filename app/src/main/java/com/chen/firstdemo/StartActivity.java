@@ -16,6 +16,7 @@ import com.chen.firstdemo.charts.ChartsActivity;
 import com.chen.firstdemo.clipview.ClipViewDemoActivity;
 import com.chen.firstdemo.dialog.douyindialog.douyin.DouYinDialogActivity;
 import com.chen.firstdemo.diy_view_demo.DIYViewActivity;
+import com.chen.firstdemo.e_number.ENumberActivity;
 import com.chen.firstdemo.flight_chess.FlightChessActivity;
 import com.chen.firstdemo.gauss_blur_demo.GaussBlurActivity;
 import com.chen.firstdemo.giftanim.SendGiftAnimActivity;
@@ -94,6 +95,7 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(HandlerActivity.class,"解析Handler"),
                 new ClassBean(DouYinDialogActivity.class,"类似抖音评论弹窗框架LikeDouYin...接入"),
                 new ClassBean(FlightChessActivity.class,"英国十字棋棋盘"),
+                new ClassBean(ENumberActivity.class,"电子数字"),
 
 
                 /*最后一个预留空位*/
