@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 
 import com.chen.firstdemo.banner.Banner2Activity;
 import com.chen.firstdemo.bitmap_mix.BitmapMixActivity;
-import com.chen.firstdemo.bottom_tabs.bottom_tab_demo.BottomTabActivity;
 import com.chen.firstdemo.bottom_tabs.bottom_tab_demo_2.BottomTab2Activity;
 import com.chen.firstdemo.charts.ChartsActivity;
 import com.chen.firstdemo.clipview.ClipViewDemoActivity;
@@ -21,9 +20,12 @@ import com.chen.firstdemo.flight_chess.FlightChessActivity;
 import com.chen.firstdemo.gauss_blur_demo.GaussBlurActivity;
 import com.chen.firstdemo.giftanim.SendGiftAnimActivity;
 import com.chen.firstdemo.handler.HandlerActivity;
+import com.chen.firstdemo.huanXinSDK.HuanXinSDKActivity;
 import com.chen.firstdemo.largeFace.LargeFaceActivity;
+import com.chen.firstdemo.matrix_demo.matrix_study.MatrixStudyActivity;
 import com.chen.firstdemo.matryoshka.MatryoshkaActivity;
 import com.chen.firstdemo.new_beiyu.NewBeiyuActivity;
+import com.chen.firstdemo.pressure_view.PressureViewDemoActivity;
 import com.chen.firstdemo.recyclers.drag_recycler.DragRecyclerDeniActivity;
 import com.chen.firstdemo.recyclers.empty_recyclerview.EmptyAdapterActivity;
 import com.chen.firstdemo.floating_window_demo.FloatingWindowActivity;
@@ -89,13 +91,16 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(SurfaceViewDemoActivity.class,"SurfaceView研究"),
                 new ClassBean(TaskStackBuilder1Activity.class,"TaskStackBuilder研究"),
                 new ClassBean(MultipleImgViewActivity.class,"钉钉和微信群组头像view"),
-                new ClassBean(SendGiftAnimActivity.class,"房间送礼动画"),
                 new ClassBean(SpringScrollActivity.class,"自带阻尼的SpringScrollview接入"),
                 new ClassBean(MatryoshkaActivity.class,"套娃view"),
                 new ClassBean(HandlerActivity.class,"解析Handler"),
                 new ClassBean(DouYinDialogActivity.class,"类似抖音评论弹窗框架LikeDouYin...接入"),
                 new ClassBean(FlightChessActivity.class,"英国十字棋棋盘"),
                 new ClassBean(ENumberActivity.class,"电子数字"),
+                new ClassBean(PressureViewDemoActivity.class,"压力View"),
+                new ClassBean(MatrixStudyActivity.class,"Matrix 研究"),
+                new ClassBean(HuanXinSDKActivity.class,"环信SDK研究"),
+                new ClassBean(SendGiftAnimActivity.class,"房间送礼动画"),
 
 
                 /*最后一个预留空位*/

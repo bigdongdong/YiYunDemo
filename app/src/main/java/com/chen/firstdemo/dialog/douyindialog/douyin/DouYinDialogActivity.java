@@ -20,7 +20,7 @@ import com.chen.firstdemo.recyclers.empty_recyclerview.adapters.QuickAdapter;
 import com.chen.firstdemo.utils.DensityUtil;
 import com.chen.firstdemo.utils.GradientDrawableBuilder;
 import com.chen.firstdemo.utils.ScreenUtil;
-import com.cxd.likedouyinframelayout.LikeDouYinDialog;
+//import com.cxd.likedouyinframelayout.LikeDouYinDialog;
 import com.cxd.likedouyinframelayout.LikeDouYinFrameLayout;
 
 import org.jetbrains.annotations.NotNull;

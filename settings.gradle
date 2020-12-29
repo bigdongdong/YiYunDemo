@@ -1,1 +1,1 @@
-include ':app',':otherDemos'
+include ':app',':otherDemos',':kefu-easeui',':player'

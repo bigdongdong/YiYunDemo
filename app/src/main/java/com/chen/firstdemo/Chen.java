@@ -1,11 +1,17 @@
 package com.chen.firstdemo;
 
+import android.app.Activity;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.chen.firstdemo.greendao_demo.dao.DaoMaster;
 import com.chen.firstdemo.greendao_demo.dao.DaoSession;
+import com.hyphenate.chat.ChatClient;
+import com.hyphenate.helpdesk.easeui.UIProvider;
+import com.hyphenate.helpdesk.easeui.ui.BaseChatActivity;
 
 
 public class Chen extends Application {
@@ -48,7 +54,68 @@ public class Chen extends Application {
 //            // 1、UI相关初始化操作
 //            // 2、相关Service调用
 //        }
+
+
+        /*环信SDK */
+        ChatClient.Options options = new ChatClient.Options();
+        options.setAppkey("1464201221092511#kefuchannelapp88412");//必填项，appkey获取地址：kefu.easemob.com，“管理员模式 > 渠道管理 > 手机APP”页面的关联的“AppKey”
+        options.setTenantId("88412");//必填项，tenantId获取地址：kefu.easemob.com，“管理员模式 > 设置 > 企业信息”页面的“租户ID”
+
+        // Kefu SDK 初始化
+        if (ChatClient.getInstance().init(this, options)){
+            // Kefu EaseUI的初始化
+            UIProvider.getInstance().init(this);
+            //后面可以设置其他属性
+
+            //开启日志
+            ChatClient.getInstance().init(this, new ChatClient.Options().setConsoleLog(true));
+            //通过反射更改com.hyphenate.helpdesk.easeui.ui.BaseChatActivity的contentView布局从左到右
+
+        }
+
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+            @Override
+            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+
+            }
+
+            @Override
+            public void onActivityStarted(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityResumed(Activity activity) {
+                if(activity instanceof com.hyphenate.helpdesk.easeui.ui.BaseChatActivity){
+                    View view = activity.getWindow().getDecorView().findViewById(android.R.id.content);
+                    view.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+
+                }
+            }
+
+            @Override
+            public void onActivityPaused(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityStopped(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+            }
+
+            @Override
+            public void onActivityDestroyed(Activity activity) {
+
+            }
+        });
     }
+
+
 
     public DaoSession getDaoSession() {
         return mDaoSession;

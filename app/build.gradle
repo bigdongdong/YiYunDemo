@@ -9,6 +9,7 @@ android {
         applicationId "com.chen.firstdemo"
         minSdkVersion 19
         targetSdkVersion 28
+        multiDexEnabled true //分包
         versionCode 1
         versionName "1.0"
         //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
@@ -68,8 +69,8 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.2.2' // 添加库
 
 //    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
-    implementation 'com.github.bumptech.glide:glide:4.5.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 //    implementation "com.zlc.glide:webpdecoder:1.6.4.11.0"
 
 
@@ -93,7 +94,8 @@ dependencies {
     implementation 'com.github.bigdongdong:CakeChartView:1.0'
     implementation 'com.github.bigdongdong:HoverItemDecoration:1.0'
     implementation 'com.github.bigdongdong:SpringScrollView:1.8'
-    implementation 'com.github.bigdongdong:LikeDouYinFrameLayout:2.1'
+    implementation 'com.github.bigdongdong:LikeDouYinFrameLayout:3.1'
+    implementation 'com.github.bigdongdong:ENumberView:1.1'
 
     /*吸顶RecyclerView的装饰者*/
 //    implementation 'com.demon.yu:top-decoration:1.0.0'
@@ -101,9 +103,18 @@ dependencies {
     //  涟漪动画效果按钮
     implementation 'com.patrickpissurno:ripple-effect:1.3.1'
     implementation project(':otherDemos')
+    implementation project(':kefu-easeui')
 
 //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
 
+
+    /*环信sdk*/
+    //环信客服SDK
+//    compile 'com.hyphenate:kefu-easeui-android:latest.release'
+//    compile 'com.hyphenate:kefu-easeui-android:1.1.9r2'
+//    或者 compile 'com.hyphenate:kefu-easeui-android:1.1.9r2'
+
+//    compile 'com.easemob:kefu-sdk:1.2.3'
 }
 
 greendao {

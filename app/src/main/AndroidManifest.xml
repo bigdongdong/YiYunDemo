@@ -17,7 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".e_number.ENumberActivity"></activity>
+        <activity android:name=".huanXinSDK.HuanXinSDKActivity"></activity>
+        <activity android:name=".matrix_demo.matrix_study.MatrixStudyActivity" />
+        <activity android:name=".pressure_view.PressureViewDemoActivity" />
+        <activity android:name=".e_number.ENumberActivity" />
         <activity android:name=".flight_chess.FlightChessActivity" />
         <activity android:name=".handler.HandlerActivity" />
         <activity android:name=".matryoshka.MatryoshkaActivity" />

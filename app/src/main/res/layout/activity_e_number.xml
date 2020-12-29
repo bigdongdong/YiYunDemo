@@ -5,14 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".e_number.ENumberActivity"
-    android:gravity="center"
     android:orientation="vertical"
-    android:background="#f7f7f7"
+    android:gravity="center"
     >
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16sp"
+            android:textColor="#111111"
+            android:text="空位不补0 :"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.cxd.enumberview.ENumberView
+            android:id="@+id/eNumberView"
+            android:layout_marginTop="5dp"
+            xmlns:e_number="http://schemas.android.com/apk/res-auto"
+            e_number:count="8"
+            e_number:backgroundColor="#eaeaea"
+            e_number:foregroundColor="#111111"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"/>
 
-    <com.chen.firstdemo.e_number.eNumber.ENumberView
-        android:background="#FFFFFF"
-        android:layout_width="100dp"
-        android:layout_height="200dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16sp"
+            android:textColor="#111111"
+            android:text="空位补0 :"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.cxd.enumberview.ENumberView
+            android:id="@+id/eNumberView2"
+            android:layout_marginTop="5dp"
+            xmlns:e_number="http://schemas.android.com/apk/res-auto"
+            e_number:count = "8"
+            e_number:backgroundColor="#e4f9f5"
+            e_number:foregroundColor="#30e3ca"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_marginTop="50dp"
+        android:text="随机生成"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
