@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".charts.ChartsActivity"
+    tools:context=".charts.activity.ChartsActivity"
     android:background="#CCCCCC"
     >
     <LinearLayout
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <com.chen.firstdemo.charts.LineChartView
+        <com.chen.firstdemo.charts.LightLineChartView
             android:layout_marginBottom="30dp"
             android:background="#FFFFFF"
             android:layout_marginLeft="40dp"
@@ -57,6 +57,11 @@
 <!--                android:layout_height="300dp"/>-->
 <!--        </RelativeLayout>-->
 
+        <com.chen.firstdemo.charts.LineChartView
+            android:id="@+id/lcv"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
     </LinearLayout>
 
 

@@ -19,12 +19,12 @@
         <com.cxd.regularpolygonview.RegularPolygonView
             xmlns:rpv="http://schemas.android.com/apk/res-auto"
             rpv:sides="6"
-            rpv:border_width="3dp"
-            rpv:border_color="#F8C416"
-            rpv:round_radius="15dp"
+            rpv:border_width="0dp"
+            rpv:border_color="#00000000"
+            rpv:round_radius="10dp"
             android:src="@mipmap/beauty_3"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             />
 
         <com.chen.firstdemo.hexagon_view_demo.RhombusImageView

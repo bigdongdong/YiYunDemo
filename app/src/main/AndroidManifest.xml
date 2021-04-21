@@ -17,7 +17,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".huanXinSDK.HuanXinSDKActivity"></activity>
+        <activity android:name=".soft_keyboard.SoftKeyBoardActivity"></activity>
+        <activity android:name=".text_color_change.TextColorChangeActivity" />
+        <activity android:name=".recyclers.better_adapters.activity.MultipleAdapterActivity" />
+        <activity android:name=".recyclers.nest_recycle.NestRecycleActivity" />
+        <activity android:name=".diy_media_player.VideoByDKPlayerActivity" />
+        <activity android:name=".diy_media_player.VideoByVideoViewActivity" />
+        <activity android:name=".diy_media_player.VideoByMediaPlayerSurfaceViewActivity" />
+        <activity android:name=".huanXinSDK.HuanXinSDKActivity" />
         <activity android:name=".matrix_demo.matrix_study.MatrixStudyActivity" />
         <activity android:name=".pressure_view.PressureViewDemoActivity" />
         <activity android:name=".e_number.ENumberActivity" />
@@ -33,7 +40,7 @@
         <activity android:name=".weelview.WheelDemoActivity" />
         <activity android:name=".recyclers.kotlin.KotlinDemoActivity" />
         <activity android:name=".notification_demo.Notification2Activity" />
-        <activity android:name=".charts.ChartsActivity" />
+        <activity android:name=".charts.activity.ChartsActivity" />
         <activity android:name=".new_beiyu.NewBeiyuActivity" />
         <activity android:name=".surfaceview_demo.SurfaceViewDemoActivity" />
         <activity android:name=".suscat.OtherApplicationsActivity" />
@@ -76,6 +83,10 @@
             android:name="PRODUCT"
             android:value="${CHANNEL_VALUE}" /> <!-- APP key, 可以在这里设置，也可以在 SDKOptions 中提供。 -->
         <service android:name=".floating_window_demo.service.FloatingWindowService" />
+        <service
+            android:name=".aidl.MyService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

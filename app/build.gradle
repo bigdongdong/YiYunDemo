@@ -89,7 +89,7 @@ dependencies {
     implementation 'com.github.bigdongdong:Banner:3.5'
     implementation 'com.github.bigdongdong:ClipView:1.1'
     implementation 'com.github.bigdongdong:Photor:2.0'
-    implementation 'com.github.bigdongdong:RegularPolygonView:1.0'
+    implementation 'com.github.bigdongdong:RegularPolygonView:1.1'
     implementation 'com.github.bigdongdong:ChatView:2.0'
     implementation 'com.github.bigdongdong:CakeChartView:1.0'
     implementation 'com.github.bigdongdong:HoverItemDecoration:1.0'
@@ -103,18 +103,24 @@ dependencies {
     //  涟漪动画效果按钮
     implementation 'com.patrickpissurno:ripple-effect:1.3.1'
     implementation project(':otherDemos')
-    implementation project(':kefu-easeui')
+    //以下是androidx的aar
+//    implementation files('libs/kefu-easeui-android-release.aar')
+//    implementation files('libs/player-release.aar')
+//    implementation 'com.easemob:kefu-sdk:1.2.3'
+//    implementation project(':kefu-easeui-android-release')
+//    implementation project(':player')
 
 //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
 
 
     /*环信sdk*/
-    //环信客服SDK
-//    compile 'com.hyphenate:kefu-easeui-android:latest.release'
-//    compile 'com.hyphenate:kefu-easeui-android:1.1.9r2'
-//    或者 compile 'com.hyphenate:kefu-easeui-android:1.1.9r2'
+   implementation 'com.github.bigdongdong:huanxin-kefu-easeui:glide-4.9-sdk-1.2.3-version-1.2'
 
-//    compile 'com.easemob:kefu-sdk:1.2.3'
+    /*DK视频播放器*/
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-java:3.2.6'
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-ui:3.2.6'
+
+    implementation 'org.greenrobot:eventbus:3.2.0'
 }
 
 greendao {

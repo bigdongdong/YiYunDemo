@@ -4,181 +4,196 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.CornerPathEffect;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
-import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
-
-import java.text.DecimalFormat;
-import java.util.Random;
 
 /**
+ * create by cxd on 2021/4/20
  * 折线图
  */
 @SuppressLint("DrawAllocation")
-public class LineChartView extends ViewGroup {
-    //文字大小 15sp
-    private final int FONT_SIZE ;
-    //小数点后留余
-    private final DecimalFormat df2 = new DecimalFormat("###.0");
-
+public class LineChartView extends View {
+    private int w , h ;
     private Context context ;
-    private int w,h ;
-    private int pleft , pright , ptop , pbottom ;
-    private CPoint[] points ;
+
+    private Point[] points ; //值对应的点集合
+
+    private int unitPx; //x轴和y轴坐标单位宽度
+    private boolean isPreview = true ; //是否为预览
+
+    /*轴线*/
+    private Path axisPath;
+    private Paint axisPaint;
+    private Paint pointPaint ;
+    private Paint textPaint ;
 
 
-    //模拟数据
-    private float[] ratios;
-    private int count ;
+    /*api*/
+    private String xAxisStr = "x" ;
+    private String yAxisStr = "y" ;
+    private float[] floats ; //值集合
 
     public LineChartView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context ;
-        FONT_SIZE = sp2px(10);
 
-        count = 6 ;
-        ratios = new float[count];
-        for (int i = 0; i < count; i++) {
-            float f = new Random().nextFloat();
-            if(f < 0.75f){
-                f = 0.75f ;
-            }
-            if(f > 0.81f){
-                f = 0.81f ;
-            }
-            ratios[i] = f;
-        }
+        axisPath = new Path();
+
+        axisPaint = new Paint();
+        axisPaint.setColor(0xFF333333);
+        axisPaint.setStyle(Paint.Style.STROKE);
+        axisPaint.setStrokeWidth(dip2px(1));
+        axisPaint.setAntiAlias(true);
+
+        textPaint = new Paint();
+        textPaint.setColor(Color.BLACK);
+        textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setAntiAlias(true);
+        textPaint.setTextSize(sp2px(12));
+        textPaint.setTextAlign(Paint.Align.CENTER);
+
+        pointPaint = new Paint();
+        pointPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        pointPaint.setStrokeWidth(dip2px(5f));
+        pointPaint.setColor(Color.BLACK);
+    }
+
+    public void setFloats(String xAxisStr , String yAxisStr , float[] floats){
+        this.xAxisStr = xAxisStr ;
+        this.yAxisStr = yAxisStr ;
+        this.floats = floats ;
+        isPreview = false ;
+        invalidate();
     }
 
     @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        w = getMeasuredWidth();
-        h = getMeasuredHeight();
-        ptop = getPaddingTop() ;
-        pbottom = getPaddingBottom() ;
-        pleft = getPaddingLeft() ;
-        pright = getPaddingRight() ;
-        final int space = (w - pleft - pright)/(count-1) ;
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
 
-        points = new CPoint[count];
-        for (int i = 0; i < count; i++) {
-            float ratio = ratios[i];
-            int x = pleft + space * i ;
-            int y = (int) ((h - ptop - pbottom) * (1-ratio) + ptop);
-            points[i] = new CPoint(x,y,df2.format(ratio*100),"2"+i);
+        w = getMeasuredWidth() ;
+        h = getMeasuredHeight() ;
+
+        if(isPreview){
+            floats = new float[]{0.5f,0.24f,0.1f,0.6f,0.8f,0.2f} ;
         }
 
+        /*计算x和y轴的单位坐标*/
+        final float xPieces = floats.length + 1.25f ;
+        unitPx = (int) (w / xPieces);
+
+        /*计算y轴值范围区间*/
+        float minFloat = 0f, maxFloat = 0f;
+        for (int i = 0; i < floats.length; i++) {
+            final float f = floats[i];
+            if(f < minFloat){
+                minFloat = f ;
+            }else if(f > maxFloat){
+                maxFloat = f ;
+            }
+        }
+        float yRange = maxFloat - minFloat ;
+
+        /*计算点集合*/
+        points = new Point[floats.length];
+        final int yLength = (int) (h-unitPx*2.25f);
+        for (int i = 0; i < floats.length; i++) {
+            final int x = (int) (unitPx*(i + 1.25f));
+            final int y = (int) ((yLength * ((maxFloat-floats[i])/yRange)) + unitPx);
+            points[i] = new Point(x,y);
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        /*绘制坐标轴*/
 
-        //points's paint
-        Paint pp = new Paint();
-        pp.setStyle(Paint.Style.FILL_AND_STROKE);
-        pp.setStrokeCap(Paint.Cap.ROUND);
-        pp.setStrokeWidth(20);
-        pp.setAntiAlias(true);
-        pp.setColor(0xFF1AB0F0);
-        pp.setPathEffect(new CornerPathEffect(30));
+        /*x轴*/
+        axisPath.reset();
+        axisPath.moveTo(0,h-unitPx*0.25f);
+        axisPath.rLineTo(w,0);
+        canvas.drawPath(axisPath,axisPaint);
+        /*x轴箭头*/
+        final int dx = unitPx / 8 ;
+        axisPath.reset();
+        axisPath.moveTo(w-dx,h-unitPx*0.25f-dx);
+        axisPath.rLineTo(dx,dx);
+        axisPath.rLineTo(-dx,dx);
+        canvas.drawPath(axisPath,axisPaint);
+        /*y轴*/
+        axisPath.reset();
+        axisPath.moveTo(unitPx*0.25f,h);
+        axisPath.rLineTo(0,-h);
+        canvas.drawPath(axisPath,axisPaint);
+        /*y轴箭头*/
+        axisPath.reset();
+        axisPath.moveTo(unitPx*0.25f-dx,dx);
+        axisPath.rLineTo(dx,-dx);
+        axisPath.rLineTo(dx,dx);
+        canvas.drawPath(axisPath,axisPaint);
+        /*绘制x轴和y轴提示文案*/
+        textPaint.setTextAlign(Paint.Align.LEFT);
+        canvas.drawText(yAxisStr,unitPx*0.4f,unitPx*0.5f,textPaint);
+        textPaint.setTextAlign(Paint.Align.RIGHT);
+        canvas.drawText(xAxisStr,w-unitPx*0.1f,h-unitPx*0.4f,textPaint);
+        /*恢复中心*/
+        textPaint.setTextAlign(Paint.Align.CENTER);
 
-        //path's paint
-        Paint pt = new Paint();
-        pt.setAntiAlias(true);
-        pt.setStyle(Paint.Style.STROKE);
-        pt.setColor(0xFF1AB0F0);
-        pt.setStrokeWidth(6);
-        pt.setAntiAlias(true);
-
-        //block's paint
-        Paint pb = new Paint();
-        pb.setAntiAlias(true);
-        pb.setStyle(Paint.Style.FILL);
-        pb.setShader(new LinearGradient(0,ptop,0,h-pbottom,
-                new int[]{0x441AB0F0,0x001AB0F0},null, Shader.TileMode.MIRROR));
-
-        //font's paint
-        Paint pf = new Paint();
-        pf.setAntiAlias(true);
-        pf.setStyle(Paint.Style.FILL);
-        pf.setColor(0xFF111111);
-        pf.setTextSize(FONT_SIZE);
-        pf.setTextAlign(Paint.Align.CENTER);
-
-        //绘制线
         Path path = new Path();
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < points.length; i++) {
             Point p = points[i];
             if(i == 0){
-                path.reset();
                 path.moveTo(p.x,p.y);
             }else{
                 path.lineTo(p.x,p.y);
             }
+            /*x*/
+            axisPath.reset();
+            axisPath.moveTo(p.x,h-unitPx*0.25f);
+            axisPath.rLineTo(0,unitPx*0.1f);
+            canvas.drawPath(axisPath,axisPaint);
+            /*绘制点*/
+            canvas.drawPoint(p.x,p.y,pointPaint);
+            /*数值-下沉处理*/
+            if(i > 0 && i < points.length - 1){
+                Point p1 = points[i-1];
+                Point p2 = points[i+1];
+                if(p.y > p1.y && p.y > p2.y){
+                    canvas.drawText(String.valueOf(floats[i]),p.x,p.y+unitPx*0.2f+sp2px(12),textPaint);
+                }else{
+                    canvas.drawText(String.valueOf(floats[i]),p.x,p.y-unitPx*0.3f,textPaint);
+                }
+            }else if(i == 0 && points.length > 1 && p.y > points[i+1].y){
+                canvas.drawText(String.valueOf(floats[i]),p.x,p.y+unitPx*0.2f+sp2px(12),textPaint);
+            }else if(i == points.length-1 && points.length > 1 && p.y > points[i-1].y){
+                canvas.drawText(String.valueOf(floats[i]),p.x,p.y+unitPx*0.2f+sp2px(12),textPaint);
+            }else{
+                canvas.drawText(String.valueOf(floats[i]),p.x,p.y-unitPx*0.3f,textPaint);
+            }
+
         }
-        canvas.drawPath(path,pt);
-
-
-        //绘制点
-        for (int i = 0; i < count; i++) {
-            Point p = points[i];
-            canvas.drawPoint(p.x,p.y,pp);
-        }
-
-        //绘制渐变块
-        path = new Path();
-        path.reset();
-        path.moveTo(pleft,h-pbottom);
-        for (int i = 0; i < count; i++) {
-            Point p = points[i];
-            path.lineTo(p.x,p.y);
-        }
-        path.lineTo(w-pright,h-pbottom);
-        path.close();
-        canvas.drawPath(path,pb);
-
-        //绘制文字
-        pf.setColor(0xFF111111);
-        for (int i = 0; i < count; i++) {
-            CPoint p = points[i];
-            canvas.drawText(p.str,p.x,p.y - FONT_SIZE,pf);
-        }
-
-        //底部坐标轴
-        pf.setColor(0xFF666666);
-        for (int i = 0; i < count; i++) {
-            CPoint p = points[i];
-            canvas.drawText(p.xStr,p.x,h-pbottom+FONT_SIZE*2,pf);
-        }
-    }
-
-    class CPoint extends Point{
-        private String str ;
-        private String xStr ;
-
-        public CPoint(int x, int y, String str, String xStr) {
-            super(x, y);
-            this.str = str;
-            this.xStr = xStr;
-        }
+        canvas.drawPath(path,axisPaint);
     }
 
 
     /**
-     * sp转px
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    private int dip2px(float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    /**
+     * 将sp值转换为px值，保证文字大小不变
      * @return
      */
-    public int sp2px(float spVal) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                spVal, context.getResources().getDisplayMetrics());
+    private int sp2px(float spValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
     }
 }

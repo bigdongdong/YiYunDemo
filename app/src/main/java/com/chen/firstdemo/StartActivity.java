@@ -11,9 +11,12 @@ import android.widget.LinearLayout;
 import com.chen.firstdemo.banner.Banner2Activity;
 import com.chen.firstdemo.bitmap_mix.BitmapMixActivity;
 import com.chen.firstdemo.bottom_tabs.bottom_tab_demo_2.BottomTab2Activity;
-import com.chen.firstdemo.charts.ChartsActivity;
+import com.chen.firstdemo.charts.activity.ChartsActivity;
 import com.chen.firstdemo.clipview.ClipViewDemoActivity;
 import com.chen.firstdemo.dialog.douyindialog.douyin.DouYinDialogActivity;
+import com.chen.firstdemo.diy_media_player.VideoByDKPlayerActivity;
+import com.chen.firstdemo.diy_media_player.VideoByMediaPlayerSurfaceViewActivity;
+import com.chen.firstdemo.diy_media_player.VideoByVideoViewActivity;
 import com.chen.firstdemo.diy_view_demo.DIYViewActivity;
 import com.chen.firstdemo.e_number.ENumberActivity;
 import com.chen.firstdemo.flight_chess.FlightChessActivity;
@@ -26,6 +29,7 @@ import com.chen.firstdemo.matrix_demo.matrix_study.MatrixStudyActivity;
 import com.chen.firstdemo.matryoshka.MatryoshkaActivity;
 import com.chen.firstdemo.new_beiyu.NewBeiyuActivity;
 import com.chen.firstdemo.pressure_view.PressureViewDemoActivity;
+import com.chen.firstdemo.recyclers.better_adapters.activity.MultipleAdapterActivity;
 import com.chen.firstdemo.recyclers.drag_recycler.DragRecyclerDeniActivity;
 import com.chen.firstdemo.recyclers.empty_recyclerview.EmptyAdapterActivity;
 import com.chen.firstdemo.floating_window_demo.FloatingWindowActivity;
@@ -36,8 +40,10 @@ import com.chen.firstdemo.multiple_img_view.MultipleImgViewActivity;
 import com.chen.firstdemo.notification_demo.NotificationActivity;
 import com.chen.firstdemo.recyclers.hover_recycler.HoverRecyclerActivity;
 import com.chen.firstdemo.recyclers.kotlin.KotlinDemoActivity;
+import com.chen.firstdemo.recyclers.nest_recycle.NestRecycleActivity;
 import com.chen.firstdemo.recyclers.recyclerview_layoutmanager_demo.RecyclerViewLayoutManagerActivity;
 import com.chen.firstdemo.scrolls.SpringScrollActivity;
+import com.chen.firstdemo.soft_keyboard.SoftKeyBoardActivity;
 import com.chen.firstdemo.surfaceview_demo.SurfaceViewDemoActivity;
 import com.chen.firstdemo.suscat.OtherApplicationsActivity;
 import com.chen.firstdemo.taskstackbuilder.TaskStackBuilder1Activity;
@@ -48,6 +54,8 @@ import com.chen.firstdemo.shapes.ShapeActivity;
 import com.chen.firstdemo.utils.ScreenUtil;
 import com.chen.firstdemo.viewpagers.viewpager_demo.wheel_anim_demo.ViewpagerAnimActivity;
 import com.chen.firstdemo.weelview.WheelDemoActivity;
+
+import java.io.Serializable;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -68,7 +76,6 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(BottomTab2Activity.class,"自定义底部导航栏"),
                 new ClassBean(SelectTabActivity.class,"自定义圆角Tab"),
                 new ClassBean(ProgressImageViewActivity.class,"使用OkHttp实现的带进度的图片加载"),
-                new ClassBean(EmptyAdapterActivity.class,"RecyclerView 空布局Adapter"),
                 new ClassBean(ShapeActivity.class,"自定义Shape"),
                 new ClassBean(MatrixActivity.class,"Matrix矩阵"),
                 new ClassBean(DragRecyclerDeniActivity.class,"Drag拖动item的列表"),
@@ -76,7 +83,6 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(NotificationActivity.class,"Notification研究"),
                 new ClassBean(RecyclerViewLayoutManagerActivity.class,"RecyclerView LayoutManager研究"),
                 new ClassBean(ClipViewDemoActivity.class,"ClipView和Photor框架接入"),
-                new ClassBean(HexagonActivity.class,"尖尖朝上的正多边形ImageView"),
                 new ClassBean(HoverRecyclerActivity.class,"分组悬停RecyclerView的item装饰类"),
                 new ClassBean(GaussBlurActivity.class,"高斯模糊"),
                 new ClassBean(OtherApplicationsActivity.class,"上体掌中宝中的三个小应用"),
@@ -84,7 +90,6 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(NewBeiyuActivity.class,"为贝语实现的进度条"),
                 new ClassBean(DIYViewActivity.class,"一些自定义View"),
                 new ClassBean(KotlinDemoActivity.class,"用Kotlin实现的activity"),
-                new ClassBean(ChartsActivity.class,"图标控件Charts"),
                 new ClassBean(WheelDemoActivity.class,"选择器轮子控件Wheel"),
                 new ClassBean(ViewpagerAnimActivity.class,"基于ViewPager实现的开宝箱动画"),
                 new ClassBean(LargeFaceActivity.class,"自定义大脸View，根据进度改变颜色"),
@@ -93,14 +98,24 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(MultipleImgViewActivity.class,"钉钉和微信群组头像view"),
                 new ClassBean(SpringScrollActivity.class,"自带阻尼的SpringScrollview接入"),
                 new ClassBean(MatryoshkaActivity.class,"套娃view"),
-                new ClassBean(HandlerActivity.class,"解析Handler"),
                 new ClassBean(DouYinDialogActivity.class,"类似抖音评论弹窗框架LikeDouYin...接入"),
                 new ClassBean(FlightChessActivity.class,"英国十字棋棋盘"),
                 new ClassBean(ENumberActivity.class,"电子数字"),
                 new ClassBean(PressureViewDemoActivity.class,"压力View"),
                 new ClassBean(MatrixStudyActivity.class,"Matrix 研究"),
-                new ClassBean(HuanXinSDKActivity.class,"环信SDK研究"),
                 new ClassBean(SendGiftAnimActivity.class,"房间送礼动画"),
+                new ClassBean(HuanXinSDKActivity.class,"环信SDK研究"),
+                new ClassBean(VideoByMediaPlayerSurfaceViewActivity.class,"自定义媒体播放器:MediaPlayer+SurfaceView"),
+                new ClassBean(VideoByVideoViewActivity.class,"自定义媒体播放器:VideoView"),
+                new ClassBean(VideoByDKPlayerActivity.class,"自定义媒体播放器:DKPlayer"),
+                new ClassBean(HandlerActivity.class,"解析Handler"),
+                new ClassBean(HexagonActivity.class,"尖尖朝上的正多边形ImageView"),
+                new ClassBean(NestRecycleActivity.class,"专注解决ScrollView+RecyclerView的复用问题"),
+                new ClassBean(EmptyAdapterActivity.class,"RecyclerView 空布局Adapter"),
+                new ClassBean(MultipleAdapterActivity.class,"RecyclerView 多布局Adapter"),
+                new ClassBean(ChartsActivity.class,"图标控件Charts"),
+                new ClassBean(SoftKeyBoardActivity.class,"软键盘测试"),
+
 
 
                 /*最后一个预留空位*/
@@ -108,7 +123,7 @@ public class StartActivity extends AppCompatActivity {
         } ;
 
         for(int i = classes.length-2 ; i >= 0 ; i--){
-            View v = generateView(classes[i].c,classes[i].cStr);
+            View v = generateView(classes[i].clazz,classes[i].str);
 
             //直接点击第一个
             if(i == classes.length-2){
@@ -144,13 +159,14 @@ public class StartActivity extends AppCompatActivity {
     }
 
 
-    private class ClassBean {
-        private Class c ;
-        private String cStr ;
+    private class ClassBean implements Serializable {
+        private Class clazz;
+        private String str;
 
-        public ClassBean(Class c, String cStr) {
-            this.c = c;
-            this.cStr = cStr;
+        public ClassBean(Class c, String str) {
+            this.clazz = c;
+            this.str = str;
         }
+
     }
 }

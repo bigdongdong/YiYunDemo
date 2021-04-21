@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".recyclers.better_adapters.empty.MultipleAdapterActivity"
+    android:orientation="vertical"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/emptyBtn"
+            android:textAllCaps="false"
+            android:text="Empty"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/integerBtn"
+            android:textAllCaps="false"
+            android:text="Integer"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/stringBtn"
+            android:textAllCaps="false"
+            android:text="String"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/booleanBtn"
+            android:textAllCaps="false"
+            android:text="Boolean"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -9,6 +9,9 @@ import android.view.View;
 
 import com.chen.firstdemo.greendao_demo.dao.DaoMaster;
 import com.chen.firstdemo.greendao_demo.dao.DaoSession;
+import com.dueeeke.videoplayer.player.AndroidMediaPlayerFactory;
+import com.dueeeke.videoplayer.player.VideoViewConfig;
+import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.hyphenate.chat.ChatClient;
 import com.hyphenate.helpdesk.easeui.UIProvider;
 import com.hyphenate.helpdesk.easeui.ui.BaseChatActivity;
@@ -33,8 +36,6 @@ public class Chen extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i("aaa", "onCreate: Application ");
-
         // 通过 DaoMaster 的内部类 DevOpenHelper，你可以得到一个便利的 SQLiteOpenHelper 对象。
        // 可能你已经注意到了，你并不需要去编写「CREATE TABLE」这样的 SQL 语句，因为 greenDAO 已经帮你做了。
        // 注意：默认的 DaoMaster.DevOpenHelper 会在数据库升级时，删除所有的表，意味着这将导致数据的丢失。
@@ -60,7 +61,7 @@ public class Chen extends Application {
         ChatClient.Options options = new ChatClient.Options();
         options.setAppkey("1464201221092511#kefuchannelapp88412");//必填项，appkey获取地址：kefu.easemob.com，“管理员模式 > 渠道管理 > 手机APP”页面的关联的“AppKey”
         options.setTenantId("88412");//必填项，tenantId获取地址：kefu.easemob.com，“管理员模式 > 设置 > 企业信息”页面的“租户ID”
-
+//
         // Kefu SDK 初始化
         if (ChatClient.getInstance().init(this, options)){
             // Kefu EaseUI的初始化
@@ -69,50 +70,7 @@ public class Chen extends Application {
 
             //开启日志
             ChatClient.getInstance().init(this, new ChatClient.Options().setConsoleLog(true));
-            //通过反射更改com.hyphenate.helpdesk.easeui.ui.BaseChatActivity的contentView布局从左到右
-
         }
-
-        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
-            @Override
-            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
-            }
-
-            @Override
-            public void onActivityStarted(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivityResumed(Activity activity) {
-                if(activity instanceof com.hyphenate.helpdesk.easeui.ui.BaseChatActivity){
-                    View view = activity.getWindow().getDecorView().findViewById(android.R.id.content);
-                    view.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
-
-                }
-            }
-
-            @Override
-            public void onActivityPaused(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivityStopped(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
-            }
-
-            @Override
-            public void onActivityDestroyed(Activity activity) {
-
-            }
-        });
     }
 
 

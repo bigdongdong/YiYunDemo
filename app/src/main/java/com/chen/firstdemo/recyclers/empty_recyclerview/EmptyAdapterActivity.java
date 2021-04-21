@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,8 +17,7 @@ import android.widget.Toast;
 
 import com.chen.firstdemo.StartActivity;
 import com.chen.firstdemo.R;
-import com.chen.firstdemo.recyclers.empty_recyclerview.adapters.HFEAdapter;
-import com.chen.firstdemo.recyclers.empty_recyclerview.adapters.QuickAdapter;
+import com.chen.firstdemo.recyclers.better_adapters.activity.adapters.QuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +61,7 @@ public class EmptyAdapterActivity extends AppCompatActivity {
                     context.startActivity(intent);
                 });
                 return view;
+//                return null ;
             }
 
             @Override
@@ -71,14 +70,14 @@ public class EmptyAdapterActivity extends AppCompatActivity {
             }
 
             @Override
-            protected void onBindViewHolder(QuickAdapter.ViewHolder holder, String s, int i) {
-                TextView textView = (TextView) holder.getView(R.id.textView);
+            protected void onBindViewHolder(View item, String element, int position) {
+                TextView textView = item.findViewById(R.id.textView);
 
-                textView.setText(s+"  position:"+i);
+                textView.setText(element+"  position:"+position);
                 textView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"position:"+i,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,"position:"+position,Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -112,64 +111,6 @@ public class EmptyAdapterActivity extends AppCompatActivity {
     }
 
 
-        class MyAdapter extends HFEAdapter<String,MyAdapter.MyViewHolder> {
 
-        protected MyAdapter(Context context) {
-            super(context);
-        }
-
-        @Override
-        protected Object getEmptyIdOrView() {
-            View view = LayoutInflater.from(context).inflate(R.layout.item_empty,null);
-            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT));
-            TextView goToCreateTV = view.findViewById(R.id.goToCreateTV);
-            goToCreateTV.setTextColor(Color.WHITE);
-            GradientDrawable gd = new GradientDrawable();
-            gd.setColor(Color.parseColor("#70FF0000"));
-            gd.setCornerRadius(20);
-            gd.setStroke(2,Color.parseColor("#40111111"));
-            goToCreateTV.setBackground(gd);
-            goToCreateTV.setOnClickListener(v -> {
-                Intent intent = new Intent(context, StartActivity.class);
-                context.startActivity(intent);
-            });
-            return view;
-        }
-
-        @Override
-        protected Object getHeaderIdOrView() {
-            return R.layout.item_header;
-        }
-
-        @Override
-        protected Object getFooterIdOrView() {
-            return R.layout.item_footer;
-        }
-
-        @Override
-        protected MyViewHolder onCreateViewHolder(int itemType, ViewGroup parent) {
-            return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_general,parent,false));
-        }
-
-        @Override
-        protected void onBindViewHolder(MyViewHolder holder, String s, final int position) {
-            holder.textView.setText(s+"  position:"+position);
-            holder.textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context,"position:"+position,Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-        class MyViewHolder extends RecyclerView.ViewHolder{
-            TextView textView ;
-            public MyViewHolder(@NonNull View itemView) {
-                super(itemView);
-                textView = itemView.findViewById(R.id.textView);
-            }
-        }
-    }
 
 }
