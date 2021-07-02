@@ -24,6 +24,12 @@ import com.chen.firstdemo.gauss_blur_demo.GaussBlurActivity;
 import com.chen.firstdemo.giftanim.SendGiftAnimActivity;
 import com.chen.firstdemo.handler.HandlerActivity;
 import com.chen.firstdemo.huanXinSDK.HuanXinSDKActivity;
+import com.chen.firstdemo.interview.act_lifecycle.LifeCycleAActivity;
+import com.chen.firstdemo.interview.fragment.FragmentActivity;
+import com.chen.firstdemo.interview.glide.GlideActivity;
+import com.chen.firstdemo.interview.http.OkHttp3Activity;
+import com.chen.firstdemo.interview.http.Retrofit2Activity;
+import com.chen.firstdemo.interview.service.ServiceActivity;
 import com.chen.firstdemo.largeFace.LargeFaceActivity;
 import com.chen.firstdemo.matrix_demo.matrix_study.MatrixStudyActivity;
 import com.chen.firstdemo.matryoshka.MatryoshkaActivity;
@@ -113,8 +119,14 @@ public class StartActivity extends AppCompatActivity {
                 new ClassBean(NestRecycleActivity.class,"专注解决ScrollView+RecyclerView的复用问题"),
                 new ClassBean(EmptyAdapterActivity.class,"RecyclerView 空布局Adapter"),
                 new ClassBean(MultipleAdapterActivity.class,"RecyclerView 多布局Adapter"),
-                new ClassBean(ChartsActivity.class,"图标控件Charts"),
                 new ClassBean(SoftKeyBoardActivity.class,"软键盘测试"),
+                new ClassBean(ChartsActivity.class,"图标控件Charts"),
+                new ClassBean(FragmentActivity.class,"Fragment"),
+                new ClassBean(ServiceActivity.class,"Service"),
+                new ClassBean(OkHttp3Activity.class,"OkHttp3"),
+                new ClassBean(Retrofit2Activity.class,"Retrofit2"),
+                new ClassBean(LifeCycleAActivity.class,"Activity跳转生命周期"),
+                new ClassBean(GlideActivity.class,"Glide"),
 
 
 

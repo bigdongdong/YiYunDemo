@@ -17,7 +17,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".soft_keyboard.SoftKeyBoardActivity"></activity>
+        <activity android:name=".interview.glide.GlideActivity"></activity>
+        <activity android:name=".interview.http.Retrofit2Activity" />
+        <activity android:name=".interview.http.OkHttp3Activity" />
+        <activity android:name=".interview.fragment.FragmentActivity" />
+        <activity android:name=".interview.service.ServiceActivity" />
+        <activity android:name=".interview.act_lifecycle.LifeCycleBActivity" />
+        <activity
+            android:name=".interview.act_lifecycle.LifeCycleAActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".soft_keyboard.SoftKeyBoardActivity" />
         <activity android:name=".text_color_change.TextColorChangeActivity" />
         <activity android:name=".recyclers.better_adapters.activity.MultipleAdapterActivity" />
         <activity android:name=".recyclers.nest_recycle.NestRecycleActivity" />
@@ -83,10 +92,6 @@
             android:name="PRODUCT"
             android:value="${CHANNEL_VALUE}" /> <!-- APP key, 可以在这里设置，也可以在 SDKOptions 中提供。 -->
         <service android:name=".floating_window_demo.service.FloatingWindowService" />
-        <service
-            android:name=".aidl.MyService"
-            android:enabled="true"
-            android:exported="true" />
     </application>
 
 </manifest>

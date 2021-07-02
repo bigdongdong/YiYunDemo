@@ -71,7 +71,51 @@ public class Chen extends Application {
             //开启日志
             ChatClient.getInstance().init(this, new ChatClient.Options().setConsoleLog(true));
         }
+
+
+        /*监听所有activity生命周期*/
+        ActivityLifecycleCallbacks actCallbacks = new ActivityLifecycleCallbacks() {
+            @Override
+            public void onActivityCreated(Activity activity, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onActivityStarted(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityResumed(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityPaused(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityStopped(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onActivityDestroyed(Activity activity) {
+
+            }
+        };
+
+        //在Application#onCreate()中注册自己的Activity的生命周期回调接口。
+        registerActivityLifecycleCallbacks(actCallbacks);
+
     }
+
 
 
 

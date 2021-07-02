@@ -108,7 +108,9 @@ public class ChartsActivity extends BaseActivity {
         uiCake();
 
 
-        lcv.setFloats("日期（单位：日）","体重（单位：kg）",new float[]{0.5f,0.24f,0.1f,0.6f,0.8f,0.2f,0.5f,0.24f,0.1f,0.6f,0.8f,0.2f});
+//        lcv.setFloats("日期（单位：日）","体重（单位：kg）",new float[]{0.5f,0.24f,0.1f,0.6f,0.8f,0.2f,0.5f,0.24f,0.1f,0.6f,0.8f,0.2f});
+        lcv.setFloats("date:day","weight:kg",
+                new float[]{86.34f,85.52f,85.09f,84.93f,84.85f,84.85f,85.05f,84.74f});
     }
 
     @OnClick(R.id.uiButton)
